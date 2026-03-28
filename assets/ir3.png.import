@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba25nipmedkh5"
-path="res://.godot/imported/Carbon_atom.svg.png-e5f0d1b1f068ad86b3768a138344d396.ctex"
+uid="uid://6eodoal3dvf3"
+path="res://.godot/imported/ir3.png-9844ea3e05510ab102b3cccb6577cbce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Carbon_atom.svg.png"
-dest_files=["res://.godot/imported/Carbon_atom.svg.png-e5f0d1b1f068ad86b3768a138344d396.ctex"]
+source_file="res://assets/ir3.png"
+dest_files=["res://.godot/imported/ir3.png-9844ea3e05510ab102b3cccb6577cbce.ctex"]
 
 [params]
 

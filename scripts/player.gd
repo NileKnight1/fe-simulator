@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 
 var no_move = 0
-
+var health = 50
 
 func _physics_process(delta: float) -> void:
 	var SPEED = global.player_speed

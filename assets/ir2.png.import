@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbl7xpkh5ioop"
-path="res://.godot/imported/Oxygen_atom.svg.png-184c39648661ddb70a756ba9a9a06a68.ctex"
+uid="uid://sbonlegjkvyx"
+path="res://.godot/imported/ir2.png-9075b40ea56f9437e25ef4baf9e34dc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Oxygen_atom.svg.png"
-dest_files=["res://.godot/imported/Oxygen_atom.svg.png-184c39648661ddb70a756ba9a9a06a68.ctex"]
+source_file="res://assets/ir2.png"
+dest_files=["res://.godot/imported/ir2.png-9075b40ea56f9437e25ef4baf9e34dc2.ctex"]
 
 [params]
 

@@ -3,10 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://bv6b3v4afw60r" path="res://assets/walls.png" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://804wo5hxbsop" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="1_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://cdpqg03jqkor5" path="res://assets/Iron-3D-vdW.png" id="3_iywne"]
-[ext_resource type="Script" uid="uid://b7r1b4m46cxfr" path="res://scripts/bot.gd" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://dbl7xpkh5ioop" path="res://assets/Oxygen_atom.svg.png" id="5_p57ef"]
-[ext_resource type="Texture2D" uid="uid://ba25nipmedkh5" path="res://assets/Carbon_atom.svg.png" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://d36q57vish6b8" path="res://assets/ir1.png" id="4_gee14"]
+[ext_resource type="Script" uid="uid://b7r1b4m46cxfr" path="res://scripts/picked.gd" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://j0bxik32q2ud" path="res://assets/oxygen1.png" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://vi0wwdqnsfom" path="res://assets/carbon.png" id="7_gee14"]
+[ext_resource type="Texture2D" uid="uid://co3ng1kj6stqy" path="res://assets/hemo.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://b6f6rxg5ccryc" path="res://assets/chromium.png" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://db20jtcgmt17h" path="res://assets/macrophage.png" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dqy65x7l65j1h" path="res://assets/hcl.png" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://bgrd42lrow0of" path="res://assets/water.png" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_lnu2h")
@@ -38,6 +43,10 @@ sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvuet"]
+radius = 10.6090765
+height = 42.890167
+
 [node name="game" type="Node2D" unique_id=1594935208]
 script = ExtResource("1_p57ef")
 
@@ -47,86 +56,136 @@ tile_set = SubResource("TileSet_iywne")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
 position = Vector2(81, -45)
-scale = Vector2(2.6841145, 2.6841145)
+scale = Vector2(4.3101068, 4.3101068)
 script = ExtResource("1_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=318384035]
 rotation = 3.1415927
 scale = Vector2(-0.036800735, -0.036800735)
-texture = ExtResource("3_iywne")
+texture = ExtResource("4_gee14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=250452460]
+scale = Vector2(0.6476333, 0.6476333)
 shape = SubResource("CircleShape2D_lbhrr")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1911901642]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="bot" type="Area2D" parent="." unique_id=1710363263]
-scale = Vector2(2.6841145, 2.6841145)
+[node name="atom" type="Area2D" parent="." unique_id=1710363263]
+scale = Vector2(2.2241483, 2.2241483)
 script = ExtResource("4_lbhrr")
 
-[node name="Sprite2D" type="Sprite2D" parent="bot" unique_id=2096496165]
-rotation = -3.1415927
-scale = Vector2(0.019978179, 0.019978179)
-texture = ExtResource("5_p57ef")
+[node name="oxygen" type="Sprite2D" parent="atom" unique_id=2096496165]
+rotation = -6.2831855
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("6_p57ef")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bot" unique_id=1726154474]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atom" unique_id=1726154474]
 shape = SubResource("CircleShape2D_lbhrr")
 
-[node name="bot2" type="Area2D" parent="." unique_id=572895328]
-position = Vector2(-192, -85)
-scale = Vector2(2.6841145, 2.6841145)
+[node name="atom2" type="Area2D" parent="." unique_id=1175900785]
+position = Vector2(-272, 96)
+scale = Vector2(2.2241483, 2.2241483)
 script = ExtResource("4_lbhrr")
 
-[node name="Sprite2D" type="Sprite2D" parent="bot2" unique_id=964656087]
-rotation = -3.1415927
-scale = Vector2(0.019978179, 0.019978179)
-texture = ExtResource("5_p57ef")
+[node name="hemo" type="Sprite2D" parent="atom2" unique_id=1105412441]
+rotation = -6.2831855
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("8_gee14")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bot2" unique_id=1417893683]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atom2" unique_id=115724314]
 shape = SubResource("CircleShape2D_lbhrr")
 
-[node name="bot3" type="Area2D" parent="." unique_id=1509917839]
-position = Vector2(-183, 20)
-scale = Vector2(2.6841145, 2.6841145)
+[node name="atom3" type="Area2D" parent="." unique_id=1213115285]
+position = Vector2(-201, -55)
+scale = Vector2(2.2241483, 2.2241483)
 script = ExtResource("4_lbhrr")
 
-[node name="Sprite2D" type="Sprite2D" parent="bot3" unique_id=823446587]
-rotation = -3.1415927
-scale = Vector2(0.019978179, 0.019978179)
-texture = ExtResource("5_p57ef")
+[node name="carbon" type="Sprite2D" parent="atom3" unique_id=1177473555]
+rotation = -6.2831855
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("7_gee14")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bot3" unique_id=1738125979]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atom3" unique_id=28390225]
 shape = SubResource("CircleShape2D_lbhrr")
 
-[node name="bot4" type="Area2D" parent="." unique_id=2022584524]
-position = Vector2(137, 95)
-scale = Vector2(2.6841145, 2.6841145)
+[node name="atom4" type="Area2D" parent="." unique_id=105515761]
+position = Vector2(37, 107)
+scale = Vector2(2.2241483, 2.2241483)
 script = ExtResource("4_lbhrr")
 
-[node name="Sprite2D" type="Sprite2D" parent="bot4" unique_id=1058106997]
-rotation = -3.1415927
-scale = Vector2(0.019978179, 0.019978179)
-texture = ExtResource("5_p57ef")
+[node name="chromium" type="Sprite2D" parent="atom4" unique_id=1311285752]
+rotation = -6.2831855
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("9_0tnpc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bot4" unique_id=1013137925]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atom4" unique_id=1768415957]
 shape = SubResource("CircleShape2D_lbhrr")
 
-[node name="bot5" type="Area2D" parent="." unique_id=950949586]
-position = Vector2(-93, 128)
-scale = Vector2(1.6461616, 1.6461616)
+[node name="object5" type="Area2D" parent="." unique_id=929104566]
+position = Vector2(282, -24.999996)
+scale = Vector2(5.5590186, 5.5590186)
 script = ExtResource("4_lbhrr")
 
-[node name="Sprite2D" type="Sprite2D" parent="bot5" unique_id=1316477600]
-scale = Vector2(0.019978179, 0.019978179)
-texture = ExtResource("7_u5sy4")
+[node name="macrophage" type="Sprite2D" parent="object5" unique_id=2036974573]
+rotation = -6.2831855
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("10_vtaks")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bot5" unique_id=2142413219]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object5" unique_id=462307840]
 shape = SubResource("CircleShape2D_lbhrr")
 
-[connection signal="body_entered" from="bot" to="bot" method="_on_body_entered"]
-[connection signal="body_entered" from="bot2" to="bot2" method="_on_body_entered"]
-[connection signal="body_entered" from="bot3" to="bot3" method="_on_body_entered"]
-[connection signal="body_entered" from="bot4" to="bot4" method="_on_body_entered"]
-[connection signal="body_entered" from="bot5" to="bot5" method="_on_body_entered"]
+[node name="object6" type="Area2D" parent="." unique_id=1404891409]
+position = Vector2(-152.99994, -217.99998)
+scale = Vector2(5.5590186, 5.5590186)
+script = ExtResource("4_lbhrr")
+
+[node name="hcl" type="Sprite2D" parent="object6" unique_id=12153245]
+rotation = -6.2831855
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("11_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object6" unique_id=1884692481]
+shape = SubResource("CircleShape2D_lbhrr")
+
+[node name="object7" type="Area2D" parent="." unique_id=311615002]
+position = Vector2(68.999985, -217.99998)
+scale = Vector2(5.5590186, 5.5590186)
+script = ExtResource("4_lbhrr")
+
+[node name="water" type="Sprite2D" parent="object7" unique_id=1566569879]
+rotation = -6.2831855
+scale = Vector2(0.06793145, 0.06793145)
+texture = ExtResource("12_dinhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object7" unique_id=1243314307]
+position = Vector2(0.1798906, 0.7195487)
+scale = Vector2(-0.5765052, 0.3019789)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="object7" unique_id=1447930907]
+position = Vector2(-2.878203, -2.8782086)
+rotation = 0.7018492
+scale = Vector2(-0.47308415, 0.1377876)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="object7" unique_id=196860148]
+position = Vector2(3.5977607, -4.1374235)
+rotation = 2.274401
+scale = Vector2(-0.47308415, 0.1377876)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="object7" unique_id=1666786760]
+position = Vector2(-0.35977328, -1.9787694)
+rotation = 1.5861547
+scale = Vector2(-0.47308415, 0.1377876)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[connection signal="body_entered" from="atom" to="atom" method="_on_body_entered"]
+[connection signal="body_entered" from="atom2" to="atom2" method="_on_body_entered"]
+[connection signal="body_entered" from="atom3" to="atom3" method="_on_body_entered"]
+[connection signal="body_entered" from="atom4" to="atom4" method="_on_body_entered"]
+[connection signal="body_entered" from="object5" to="object5" method="_on_body_entered"]
+[connection signal="body_entered" from="object6" to="object6" method="_on_body_entered"]
+[connection signal="body_entered" from="object7" to="object7" method="_on_body_entered"]

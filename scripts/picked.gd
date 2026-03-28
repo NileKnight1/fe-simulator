@@ -5,4 +5,4 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	self.queue_free()
-	game.oxygen()
+	game.picked(self.get_child(0).name)
