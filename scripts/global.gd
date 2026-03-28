@@ -3,6 +3,8 @@ extends Node
 var player_speed = 300
 var player_boost = 1.5
 
+var game_script = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,3 +14,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print(player_speed)
 	pass
+
+func picked(x):
+	game_script.picked(x)
