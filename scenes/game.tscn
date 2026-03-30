@@ -70,4 +70,10 @@ visibility_layer = 2
 scale = Vector2(0.6525201, 0.6525201)
 shape = SubResource("CircleShape2D_iywne")
 
-[node name="objects" type="Node2D" parent="." unique_id=333518228]
+[node name="oxygens" type="Node2D" parent="." unique_id=333518228]
+
+[node name="oxygen" type="Timer" parent="." unique_id=1760348542]
+wait_time = 120.0
+one_shot = true
+
+[node name="carbons" type="Node2D" parent="." unique_id=274775227]

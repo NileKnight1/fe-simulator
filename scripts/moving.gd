@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player
-var speed = 100
+var speed = 200
 
 func _ready() -> void:
 	player = $"../../player"
@@ -18,12 +18,19 @@ func _ready() -> void:
 		#velocity = Vector2.ZERO
 
 	#move_and_slide()
+	# errors happedned so i'm writing this line to 
+	## force hackatime to run and send missing data
+	## to website and log it
+	#errors happened so im writing this line to
+	#force hackactime to run and send missing data
+	#to website and log it 
+	#
 	
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = player.global_position - global_position
 	var distance: float = direction.length()
 
-	if distance > 150: return
+	if distance > 200: return
 	
 	if distance > 45:
 		direction = direction.normalized()

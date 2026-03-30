@@ -7,8 +7,12 @@ extends Node2D
 
 
 @onready var oxygenS = preload("res://scenes/oxygen.tscn")
-@onready var objects = $objects
+@onready var carbonS = preload("res://scenes/carbon.tscn")
 
+@onready var oxygens = $oxygens
+@onready var carbons = $carbons
+
+@onready var oxygen_timer = $oxygen
 
 var toHemo = 0
 var chromium_alloy = 0
@@ -17,30 +21,63 @@ var chromium_alloy = 0
 func _ready() -> void:
 	global.game_script = self
 	#print(player.global_position)
+	#start_game()
+	death()
 	
-	spawn_oxygen()
-	spawn_oxygen()
-	spawn_oxygen()
-	spawn_oxygen()	
+
+var ttt = 0
+var t
+
+func _physics_process(delta: float) -> void:
+	if oxygen_timer.time_left == 0: return
 	
-	spawn_oxygen()
-	spawn_oxygen()
-	spawn_oxygen()
-	spawn_oxygen()	
+	for i in oxygens.get_children():
+		var pgp = player.global_position
+		var direction: Vector2 = pgp - i.global_position
+		var distance: float = direction.length()
+		if distance > 500:
+			i.queue_free()
+			spawn_oxygen()
+			
+	t = int(oxygen_timer.time_left)
+	if ttt == t: return
+	ttt = t
+	#print(t)
+	print(player.health)
+	
+	if t % 4 == 0 && oxygens.get_child_count() <= 10:
+		spawn_oxygen()
+		
+	if t % 15 == 0 && carbons.get_child_count() <= 5:
+		spawn_carbon()
+		
+		
 
 
-func spawn(new_object):
-	new_object.set_script(moving_script)
-	objects.add_child(new_object)
+func start_game():
+	oxygen_timer.start()
+
+func death():
+	oxygen_timer.stop()
+	remove_children(oxygens)
+	remove_children(carbons)
+	#get_tree().change_scene_to_file("res://scednes/game.tscn")
 	
-	new_object.position = Vector2(randi_range(-200,200), randi_range(-200,200))
-	var direction: Vector2 = player.global_position - objects.get_child(objects.get_child_count()-1).global_position
+
+func spawn(list, new_object, script):
+	var pgp = player.global_position
+	
+	new_object.set_script(script)
+	list.add_child(new_object)
+	
+	new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
+	var direction: Vector2 = pgp - list.get_child(list.get_child_count()-1).global_position
 	var distance: float = direction.length()
 	
 	
 	while distance < 150:
-		new_object.position = Vector2(randi_range(-200,200), randi_range(-200,200))
-		direction = player.global_position - objects.get_child(objects.get_child_count()-1).global_position
+		new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
+		direction = pgp - list.get_child(list.get_child_count()-1).global_position
 		distance = direction.length()
 		
 	
@@ -49,8 +86,17 @@ func spawn(new_object):
 
 func spawn_oxygen():
 	var new_object = oxygenS.instantiate()	
-	spawn(new_object)
+	spawn(oxygens, new_object, moving_script)
+
+
+func spawn_carbon():
+	var new_object = carbonS.instantiate()	
+	spawn(carbons, new_object, static_script)
 	
+
+func remove_children(list):
+	for i in list.get_children():
+		i.queue_free()
 
 func picked(atom):
 	match atom:
@@ -80,6 +126,9 @@ func oxygen():
 		global.player_speed = 150
 		global.player_boost = 1.25
 		player.health -= 15
+		if player.health <= 0:
+			death()
+			return
 		player.get_child(0).texture = load("res://assets/ir2.png")
 		await get_tree().create_timer(3.0).timeout
 		global.player_speed = 300
