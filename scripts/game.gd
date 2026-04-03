@@ -19,6 +19,9 @@ extends Node2D
 @onready var oxygen_timer = $oxygen
 @onready var time_label = $gui/time
 
+@onready var health_bar = $gui/Control/Panel3
+
+
 var toHemo = 0
 var chromium_alloy = 0
 
@@ -53,13 +56,14 @@ func _physics_process(delta: float) -> void:
 	#print(t)
 	print(player.health)
 	
+	
 	if t % 4 == 0 && oxygens.get_child_count() <= 10:
 		spawn_oxygen()
 		
-	if t % 15 == 0 && carbons.get_child_count() <= 5:
+	if t % 15 == 0 && carbons.get_child_count() <= 7:
 		spawn_carbon()
 		
-	if t % 10 == 0 && chromiums.get_child_count() <= 1:
+	if t % 10 == 0 && chromiums.get_child_count() <= 2:
 		spawn_chromium()
 	
 
@@ -67,14 +71,29 @@ func _physics_process(delta: float) -> void:
 
 func start_game():
 	oxygen_timer.start()
-	print(oxygen_timer.time_left)
+	#print(oxygen_timer.time_left)
 
 func death():
 	oxygen_timer.stop()
 	#set_physics_process(false)
 	remove_children(oxygens)
 	remove_children(carbons)
+	remove_children(chromiums)
+	
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	
+func refresh_health(pnt):
+	player.health += pnt
+	if player.health > global.max_health:
+		player.health = global.max_health
+	
+	#print(float(player.health)/float(global.max_health))
+	print((float(player.health)/float(global.max_health))*6)
+	#print()
+	
+	health_bar.scale.x = ((float(player.health)/float(global.max_health))*6)
+	
+	
 	
 
 func spawn(list, new_object, script):
@@ -84,13 +103,14 @@ func spawn(list, new_object, script):
 	list.add_child(new_object)
 	
 	new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
-	var direction: Vector2 = pgp - list.get_child(list.get_child_count()-1).global_position
+	var direction: Vector2 = pgp - new_object.global_position
 	var distance: float = direction.length()
 	
 	
-	while distance < 150:
+	while distance < 150 || new_object.position.x > 1150 || new_object.position.x < -995 ||  new_object.position.y < -610 || new_object.position.y > 640 :
+		
 		new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
-		direction = pgp - list.get_child(list.get_child_count()-1).global_position
+		direction = pgp - new_object.global_position
 		distance = direction.length()
 		
 	
@@ -142,7 +162,7 @@ func oxygen():
 		
 		global.player_speed = 150
 		global.player_boost = 1.25
-		player.health -= -15
+		refresh_health(-15)
 		if player.health <= 0:
 			death()
 			return
@@ -154,7 +174,7 @@ func oxygen():
 		player.get_child(0).texture = load("res://assets/ir1.png")
 		
 func carbon():
-	player.health += 10
+	refresh_health(10)
 	
 	
 func hemo():
@@ -188,7 +208,7 @@ func water():
 		
 		global.player_speed = 150
 		global.player_boost = 1.25
-		player.health -= 15
+		refresh_health(-25)
 		player.get_child(0).texture = load("res://assets/ir2.png")
 		await get_tree().create_timer(10.0).timeout
 		global.player_speed = 300

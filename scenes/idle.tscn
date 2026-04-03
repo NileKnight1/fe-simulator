@@ -59,21 +59,20 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pm2hd"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pm2hd"]
+radius = 17.527754
+height = 35.055508
 
-[node name="idle" type="CharacterBody2D" unique_id=1287102812]
-floor_stop_on_slope = false
-floor_block_on_wall = false
-platform_on_leave = 2
-platform_floor_layers = 4294967040
+[node name="idle" type="AnimatableBody2D" unique_id=22650639]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1672859895]
-scale = Vector2(0.9698904, 1.2252748)
+scale = Vector2(0.9698904, 0.97252536)
 sprite_frames = SubResource("SpriteFrames_k3ubi")
 autoplay = "default"
 frame_progress = 0.5625444
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=307197342]
-position = Vector2(0, 5.999999)
-scale = Vector2(1.6548525, 1.4282795)
-shape = SubResource("CircleShape2D_pm2hd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005678106]
+position = Vector2(0, 5)
+scale = Vector2(0.9698904, 0.5021725)
+shape = SubResource("CapsuleShape2D_pm2hd")
+disabled = true

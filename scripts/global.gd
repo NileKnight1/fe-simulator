@@ -2,6 +2,7 @@ extends Node
 
 var player_speed = 300
 var player_boost = 1.5
+var max_health = 50
 
 var game_script = null
 
