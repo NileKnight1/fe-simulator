@@ -315,8 +315,10 @@ vertical_alignment = 1
 [node name="Control" type="Control" parent="gui" unique_id=1700327509]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 6.0
+offset_top = 30.0
+offset_right = 46.0
+offset_bottom = 70.0
 
 [node name="Panel2" type="Panel" parent="gui/Control" unique_id=1271066620]
 layout_mode = 0
