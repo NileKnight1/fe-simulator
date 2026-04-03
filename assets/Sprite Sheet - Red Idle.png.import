@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bivxvu1mwqrqi"
-path="res://.godot/imported/matching.jpg-e2136eca67286e60e5a2f07cb870ac97.ctex"
+uid="uid://ds1wmtq1v6ult"
+path="res://.godot/imported/Sprite Sheet - Red Idle.png-51f8f71f85193a220c0a4f788f57728e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/matching.jpg"
-dest_files=["res://.godot/imported/matching.jpg-e2136eca67286e60e5a2f07cb870ac97.ctex"]
+source_file="res://assets/Sprite Sheet - Red Idle.png"
+dest_files=["res://.godot/imported/Sprite Sheet - Red Idle.png-51f8f71f85193a220c0a4f788f57728e.ctex"]
 
 [params]
 

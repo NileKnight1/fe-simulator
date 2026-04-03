@@ -40,7 +40,9 @@ func _physics_process(delta: float) -> void:
 		self.queue_free()
 		global.picked(self.get_child(0).name)
 	
-
+	if !is_inside_tree():
+		return
+		
 	move_and_slide()
 	
 	

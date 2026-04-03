@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cvmgnodnylxau"]
+
+[ext_resource type="Texture2D" uid="uid://ds1wmtq1v6ult" path="res://assets/Sprite Sheet - Red Idle.png" id="2_hhacj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8vap"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntuq6"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf32g"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(192, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px7s3"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(288, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjusx"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(384, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebtlt"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(480, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik5ga"]
+atlas = ExtResource("2_hhacj")
+region = Rect2(576, 0, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3ubi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8vap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntuq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf32g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px7s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjusx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebtlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik5ga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pm2hd"]
+
+[node name="idle" type="CharacterBody2D" unique_id=1287102812]
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1672859895]
+scale = Vector2(0.9698904, 1.2252748)
+sprite_frames = SubResource("SpriteFrames_k3ubi")
+autoplay = "default"
+frame_progress = 0.5625444
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=307197342]
+position = Vector2(0, 5.999999)
+scale = Vector2(1.6548525, 1.4282795)
+shape = SubResource("CircleShape2D_pm2hd")

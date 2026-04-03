@@ -8,11 +8,16 @@ extends Node2D
 
 @onready var oxygenS = preload("res://scenes/oxygen.tscn")
 @onready var carbonS = preload("res://scenes/carbon.tscn")
+@onready var chromiumS = preload("res://scenes/chromium.tscn")
+
 
 @onready var oxygens = $oxygens
 @onready var carbons = $carbons
+@onready var chromiums = $chromiums
+
 
 @onready var oxygen_timer = $oxygen
+@onready var time_label = $gui/time
 
 var toHemo = 0
 var chromium_alloy = 0
@@ -21,14 +26,16 @@ var chromium_alloy = 0
 func _ready() -> void:
 	global.game_script = self
 	#print(player.global_position)
-	#start_game()
-	death()
+	print("started")
+	start_game()
+	#death()
 	
 
 var ttt = 0
 var t
 
 func _physics_process(delta: float) -> void:
+	
 	if oxygen_timer.time_left == 0: return
 	
 	for i in oxygens.get_children():
@@ -41,6 +48,7 @@ func _physics_process(delta: float) -> void:
 			
 	t = int(oxygen_timer.time_left)
 	if ttt == t: return
+	time_label.text = str(t)
 	ttt = t
 	#print(t)
 	print(player.health)
@@ -51,17 +59,22 @@ func _physics_process(delta: float) -> void:
 	if t % 15 == 0 && carbons.get_child_count() <= 5:
 		spawn_carbon()
 		
-		
+	if t % 10 == 0 && chromiums.get_child_count() <= 1:
+		spawn_chromium()
+	
+
 
 
 func start_game():
 	oxygen_timer.start()
+	print(oxygen_timer.time_left)
 
 func death():
 	oxygen_timer.stop()
+	#set_physics_process(false)
 	remove_children(oxygens)
 	remove_children(carbons)
-	#get_tree().change_scene_to_file("res://scednes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 	
 
 func spawn(list, new_object, script):
@@ -85,14 +98,18 @@ func spawn(list, new_object, script):
 
 
 func spawn_oxygen():
-	var new_object = oxygenS.instantiate()	
+	var new_object = oxygenS.instantiate()
 	spawn(oxygens, new_object, moving_script)
 
 
 func spawn_carbon():
-	var new_object = carbonS.instantiate()	
+	var new_object = carbonS.instantiate()
 	spawn(carbons, new_object, static_script)
-	
+
+func spawn_chromium():
+	var new_object = chromiumS.instantiate()
+	spawn(chromiums, new_object, static_script)
+
 
 func remove_children(list):
 	for i in list.get_children():
@@ -125,12 +142,13 @@ func oxygen():
 		
 		global.player_speed = 150
 		global.player_boost = 1.25
-		player.health -= 15
+		player.health -= -15
 		if player.health <= 0:
 			death()
 			return
 		player.get_child(0).texture = load("res://assets/ir2.png")
 		await get_tree().create_timer(3.0).timeout
+		if chromium_alloy: return
 		global.player_speed = 300
 		global.player_boost = 1.25
 		player.get_child(0).texture = load("res://assets/ir1.png")
@@ -147,6 +165,8 @@ func hemo():
 func chromium():
 	player.get_child(0).texture = load("res://assets/ir3.png")
 	chromium_alloy = 1
+	global.player_speed = 300
+	global.player_boost = 1.25
 	await get_tree().create_timer(10.0).timeout
 	player.get_child(0).texture = load("res://assets/ir1.png")
 	
