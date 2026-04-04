@@ -1,14 +1,16 @@
-[gd_scene format=4 uid="uid://c7gxq1djc28c0"]
+[gd_scene format=4 uid="uid://bhu8b7v608kt7"]
 
-[ext_resource type="Texture2D" uid="uid://b7pjranhrr2hp" path="res://assets/Biker_idle.png" id="1_0camc"]
-[ext_resource type="Script" uid="uid://duyglfcsxpb72" path="res://scripts/meeting.gd" id="1_hn621"]
-[ext_resource type="Texture2D" uid="uid://cyo7xyrqoq4yv" path="res://assets/bgs2.png" id="1_ycmb3"]
-[ext_resource type="Texture2D" uid="uid://ck6sjswq74qjs" path="res://assets/tiles.png" id="2_1u8pm"]
-[ext_resource type="Texture2D" uid="uid://bw62qccangba" path="res://assets/Punk_idle.png" id="2_r7otk"]
-[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_1u8pm"]
+[ext_resource type="Script" uid="uid://bsja5ki42ltts" path="res://scripts/phone.gd" id="1_jmr6v"]
+[ext_resource type="Texture2D" uid="uid://cyo7xyrqoq4yv" path="res://assets/bgs2.png" id="2_sfhd4"]
+[ext_resource type="Texture2D" uid="uid://ck6sjswq74qjs" path="res://assets/tiles.png" id="3_swfme"]
+[ext_resource type="Texture2D" uid="uid://b7pjranhrr2hp" path="res://assets/Biker_idle.png" id="4_5jpdv"]
+[ext_resource type="Texture2D" uid="uid://dxnrps3g500uo" path="res://assets/PixelArt Phone.png" id="6_jmr6v"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="6_mseb3"]
+[ext_resource type="Texture2D" uid="uid://bmt6c0yq5d88d" path="res://assets/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg" id="7_sfhd4"]
+[ext_resource type="Texture2D" uid="uid://cyqkbdu22uivl" path="res://assets/chat-gpt-gives-blank-responses-v0-byq55kvnbcxf1.png" id="8_swfme"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn621"]
-texture = ExtResource("2_1u8pm")
+texture = ExtResource("3_swfme")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -145,19 +147,19 @@ texture = ExtResource("2_1u8pm")
 sources/0 = SubResource("TileSetAtlasSource_hn621")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hn621"]
-atlas = ExtResource("1_0camc")
+atlas = ExtResource("4_5jpdv")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1d6ut"]
-atlas = ExtResource("1_0camc")
+atlas = ExtResource("4_5jpdv")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycmb3"]
-atlas = ExtResource("1_0camc")
+atlas = ExtResource("4_5jpdv")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u8pm"]
-atlas = ExtResource("1_0camc")
+atlas = ExtResource("4_5jpdv")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o5g77"]
@@ -181,42 +183,6 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycmb3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mg78"]
-atlas = ExtResource("2_r7otk")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6xtc"]
-atlas = ExtResource("2_r7otk")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkxc0"]
-atlas = ExtResource("2_r7otk")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_irumy"]
-atlas = ExtResource("2_r7otk")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dr13l"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3mg78")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a6xtc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bkxc0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irumy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hn621"]
 bg_color = Color(0.14, 0.14, 0.14, 1)
@@ -248,15 +214,15 @@ expand_margin_top = 90.0
 expand_margin_right = 90.0
 expand_margin_bottom = 90.0
 
-[node name="meeting" type="Node2D" unique_id=1116781381]
-script = ExtResource("1_hn621")
+[node name="phone" type="Node2D" unique_id=1116781381]
+script = ExtResource("1_jmr6v")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=348388678]
 offset_left = -256.0
 offset_top = -203.0
 offset_right = 253.0
 offset_bottom = 83.0
-texture = ExtResource("1_ycmb3")
+texture = ExtResource("2_sfhd4")
 expand_mode = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=995034893]
@@ -275,23 +241,6 @@ autoplay = "default"
 visible = false
 shape = SubResource("CircleShape2D_ycmb3")
 disabled = true
-
-[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="." unique_id=1280945857]
-position = Vector2(0, -9.999998)
-scale = Vector2(4.502342, 4.502342)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatableBody2D2" unique_id=1621844591]
-visible = false
-position = Vector2(-20.655912, 0)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CircleShape2D_ycmb3")
-disabled = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D2" unique_id=624001703]
-position = Vector2(21.766447, 0)
-sprite_frames = SubResource("SpriteFrames_dr13l")
-autoplay = "default"
-offset = Vector2(20.35, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785672205]
 zoom = Vector2(2.5, 2.5)
@@ -320,7 +269,7 @@ offset_right = 1709.0
 offset_bottom = 324.0
 scale = Vector2(0.26080146, 0.26080146)
 theme_override_colors/font_color = Color(0.22448674, 0.6586496, 0.76920056, 1)
-theme_override_fonts/font = ExtResource("5_1u8pm")
+theme_override_fonts/font = ExtResource("6_mseb3")
 theme_override_font_sizes/font_size = 95
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -331,13 +280,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="option1" type="Button" parent="Control/Control" unique_id=354997150]
+visible = false
 layout_mode = 0
 offset_left = -67.0
 offset_top = -123.0
 offset_right = 1535.0
 offset_bottom = 111.0
 scale = Vector2(0.084336616, 0.09108355)
-theme_override_fonts/font = ExtResource("5_1u8pm")
+theme_override_fonts/font = ExtResource("6_mseb3")
 theme_override_font_sizes/font_size = 155
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d6ut")
@@ -345,18 +295,41 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o5g77")
 text = "Hey girl."
 
 [node name="option2" type="Button" parent="Control/Control" unique_id=304648043]
+visible = false
 layout_mode = 0
 offset_left = -67.0
 offset_top = -56.000008
 offset_right = 1535.0
 offset_bottom = 178.0
 scale = Vector2(0.084336616, 0.09108355)
-theme_override_fonts/font = ExtResource("5_1u8pm")
+theme_override_fonts/font = ExtResource("6_mseb3")
 theme_override_font_sizes/font_size = 155
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o5g77")
 text = "Uhm Hello."
 
+[node name="PixelArtPhone" type="Sprite2D" parent="Control" unique_id=1371998376]
+position = Vector2(184, -56)
+scale = Vector2(3.2961242, 3.2961242)
+texture = ExtResource("6_jmr6v")
+
+[node name="chatgpt" type="TextureButton" parent="." unique_id=710880446]
+offset_left = 58.000004
+offset_top = -86.0
+offset_right = 1038.0
+offset_bottom = 894.0
+scale = Vector2(0.024785358, 0.024785358)
+texture_normal = ExtResource("7_sfhd4")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=37265207]
+offset_left = 48.0
+offset_top = -112.00001
+offset_right = 1128.0
+offset_bottom = 2228.0
+scale = Vector2(0.09857605, 0.09710416)
+texture = ExtResource("8_swfme")
+
 [connection signal="pressed" from="Control/Control/option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="Control/Control/option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="chatgpt" to="." method="_on_chatgpt_pressed"]
