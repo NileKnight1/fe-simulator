@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="6_mseb3"]
 [ext_resource type="Texture2D" uid="uid://bmt6c0yq5d88d" path="res://assets/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg" id="7_sfhd4"]
 [ext_resource type="Texture2D" uid="uid://cyqkbdu22uivl" path="res://assets/chat-gpt-gives-blank-responses-v0-byq55kvnbcxf1.png" id="8_swfme"]
+[ext_resource type="Texture2D" uid="uid://csooab0head6s" path="res://assets/12222560.png" id="9_3rig2"]
+[ext_resource type="Texture2D" uid="uid://mpgiuogex38a" path="res://assets/user-icon-on-transparent-background-free-png.webp" id="10_mseb3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn621"]
 texture = ExtResource("3_swfme")
@@ -322,13 +324,233 @@ offset_bottom = 894.0
 scale = Vector2(0.024785358, 0.024785358)
 texture_normal = ExtResource("7_sfhd4")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=37265207]
+[node name="objects" type="Control" parent="." unique_id=691933945]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="objects" unique_id=37265207]
+visible = false
+layout_mode = 0
 offset_left = 48.0
 offset_top = -112.00001
 offset_right = 1128.0
 offset_bottom = 2228.0
 scale = Vector2(0.09857605, 0.09710416)
 texture = ExtResource("8_swfme")
+
+[node name="Control2" type="Control" parent="objects" unique_id=820648554]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="objects/Control2" unique_id=1845846351]
+layout_mode = 0
+offset_left = 70.0
+offset_top = -79.0
+offset_right = 255.0
+offset_bottom = -56.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "How i steal a girl heart ?"
+
+[node name="TextureRect4" type="TextureRect" parent="objects/Control2" unique_id=70386969]
+layout_mode = 0
+offset_left = 126.99999
+offset_top = -84.0
+offset_right = 705.0
+offset_bottom = 266.0
+scale = Vector2(0.05004327, 0.05004327)
+texture = ExtResource("10_mseb3")
+
+[node name="Control" type="Control" parent="objects" unique_id=315557177]
+visible = false
+anchors_preset = 0
+offset_left = 74.0
+offset_top = -35.0
+offset_right = 114.0
+offset_bottom = 5.0
+
+[node name="Label2" type="Label" parent="objects/Control" unique_id=1702932935]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -25.0
+offset_right = 249.96617
+offset_bottom = 24.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "You have to give her something from you."
+autowrap_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="objects/Control" unique_id=2132734128]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -33.000004
+offset_right = 488.0
+offset_bottom = 479.0
+scale = Vector2(0.045314334, 0.045314334)
+texture = ExtResource("9_3rig2")
+
+[node name="Control3" type="Control" parent="objects" unique_id=173410166]
+visible = false
+anchors_preset = 0
+offset_top = 45.0
+offset_right = 40.0
+offset_bottom = 85.0
+
+[node name="Label" type="Label" parent="objects/Control3" unique_id=1291548576]
+layout_mode = 0
+offset_left = 70.0
+offset_top = -79.0
+offset_right = 255.0
+offset_bottom = -56.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "Like wut?"
+horizontal_alignment = 2
+
+[node name="TextureRect4" type="TextureRect" parent="objects/Control3" unique_id=1527051851]
+layout_mode = 0
+offset_left = 126.99999
+offset_top = -84.0
+offset_right = 705.0
+offset_bottom = 266.0
+scale = Vector2(0.05004327, 0.05004327)
+texture = ExtResource("10_mseb3")
+
+[node name="Control4" type="Control" parent="objects" unique_id=1129338171]
+visible = false
+anchors_preset = 0
+offset_left = 74.0
+offset_top = 9.0
+offset_right = 114.0
+offset_bottom = 49.0
+
+[node name="Label2" type="Label" parent="objects/Control4" unique_id=1619481288]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -25.0
+offset_right = 249.96617
+offset_bottom = 24.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "Something valuable to you."
+autowrap_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="objects/Control4" unique_id=792708495]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -33.000004
+offset_right = 488.0
+offset_bottom = 479.0
+scale = Vector2(0.045314334, 0.045314334)
+texture = ExtResource("9_3rig2")
+
+[node name="Control5" type="Control" parent="objects" unique_id=710996586]
+visible = false
+anchors_preset = 0
+offset_top = 81.0
+offset_right = 40.0
+offset_bottom = 121.0
+
+[node name="Label" type="Label" parent="objects/Control5" unique_id=655724694]
+layout_mode = 0
+offset_left = 70.0
+offset_top = -79.0
+offset_right = 255.0
+offset_bottom = -56.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "My blood?"
+horizontal_alignment = 2
+
+[node name="TextureRect4" type="TextureRect" parent="objects/Control5" unique_id=853193374]
+layout_mode = 0
+offset_left = 126.99999
+offset_top = -84.0
+offset_right = 705.0
+offset_bottom = 266.0
+scale = Vector2(0.05004327, 0.05004327)
+texture = ExtResource("10_mseb3")
+
+[node name="Control6" type="Control" parent="objects" unique_id=859513893]
+visible = false
+anchors_preset = 0
+offset_left = 74.0
+offset_top = 47.0
+offset_right = 114.0
+offset_bottom = 87.0
+
+[node name="Label2" type="Label" parent="objects/Control6" unique_id=1223756993]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -25.0
+offset_right = 249.96617
+offset_bottom = 24.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "I can’t support self-harm; please reach out to a trusted person or a professional for help."
+autowrap_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="objects/Control6" unique_id=1531833118]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -33.000004
+offset_right = 488.0
+offset_bottom = 479.0
+scale = Vector2(0.045314334, 0.045314334)
+texture = ExtResource("9_3rig2")
+
+[node name="Control7" type="Control" parent="objects" unique_id=1282004611]
+visible = false
+anchors_preset = 0
+offset_top = 142.0
+offset_right = 40.0
+offset_bottom = 182.0
+
+[node name="Label" type="Label" parent="objects/Control7" unique_id=730277001]
+layout_mode = 0
+offset_left = 70.0
+offset_top = -79.0
+offset_right = 255.0
+offset_bottom = -56.0
+scale = Vector2(0.32275268, 0.32275268)
+text = "I'll give her my blood!"
+horizontal_alignment = 2
+
+[node name="TextureRect4" type="TextureRect" parent="objects/Control7" unique_id=469500617]
+layout_mode = 0
+offset_left = 126.99999
+offset_top = -84.0
+offset_right = 705.0
+offset_bottom = 266.0
+scale = Vector2(0.05004327, 0.05004327)
+texture = ExtResource("10_mseb3")
+
+[node name="Control8" type="Control" parent="objects" unique_id=1389133960]
+visible = false
+anchors_preset = 0
+offset_left = 74.0
+offset_top = 47.0
+offset_right = 114.0
+offset_bottom = 87.0
+
+[node name="ColorRect" type="ColorRect" parent="objects/Control8" unique_id=1978920487]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 58.000015
+offset_right = 17.0
+offset_bottom = 98.000015
+scale = Vector2(2.5608666, -0.34560537)
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="objects/Control8" unique_id=216297820]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 46.0
+offset_right = 515.79626
+offset_bottom = 121.0
+scale = Vector2(0.19933692, 0.19933692)
+theme_override_colors/font_color = Color(1, 0, 0.016666412, 1)
+text = "“This content may violate our policies. Please review and try again.”"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Control/Control/option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="Control/Control/option2" to="." method="_on_option_2_pressed"]
