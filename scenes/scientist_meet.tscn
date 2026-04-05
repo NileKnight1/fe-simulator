@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://dbcxm8udl2vcd"]
 
-[ext_resource type="Script" uid="uid://duyglfcsxpb72" path="res://scripts/meeting.gd" id="1_2en46"]
-[ext_resource type="Texture2D" uid="uid://cyo7xyrqoq4yv" path="res://assets/bgs2.png" id="2_bursa"]
+[ext_resource type="Script" uid="uid://bi2ieo8o6vhph" path="res://scripts/meeting_sci.gd" id="1_2en46"]
+[ext_resource type="Texture2D" uid="uid://ky6qevj6cp08" path="res://assets/bgs2_night.png" id="2_s0akp"]
 [ext_resource type="Texture2D" uid="uid://ck6sjswq74qjs" path="res://assets/tiles.png" id="3_yqjd4"]
 [ext_resource type="Texture2D" uid="uid://b7pjranhrr2hp" path="res://assets/Biker_idle.png" id="4_apkwe"]
-[ext_resource type="Texture2D" uid="uid://bw62qccangba" path="res://assets/Punk_idle.png" id="5_1pr4l"]
+[ext_resource type="Texture2D" uid="uid://j3jxtdeo421p" path="res://assets/sci.png" id="5_2en46"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="6_cfuer"]
+[ext_resource type="Texture2D" uid="uid://5q1m0tnunuo6" path="res://assets/gun.png" id="7_bursa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn621"]
 texture = ExtResource("3_yqjd4")
@@ -182,40 +183,26 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycmb3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mg78"]
-atlas = ExtResource("5_1pr4l")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bursa"]
+atlas = ExtResource("5_2en46")
+region = Rect2(151, 0, 139, 245)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6xtc"]
-atlas = ExtResource("5_1pr4l")
-region = Rect2(48, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqjd4"]
+atlas = ExtResource("5_2en46")
+region = Rect2(290, 0, 139, 245)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkxc0"]
-atlas = ExtResource("5_1pr4l")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_irumy"]
-atlas = ExtResource("5_1pr4l")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dr13l"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_apkwe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3mg78")
+"texture": SubResource("AtlasTexture_bursa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a6xtc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bkxc0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irumy")
+"texture": SubResource("AtlasTexture_yqjd4")
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 0.5
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hn621"]
@@ -256,7 +243,7 @@ offset_left = -256.0
 offset_top = -203.0
 offset_right = 253.0
 offset_bottom = 83.0
-texture = ExtResource("2_bursa")
+texture = ExtResource("2_s0akp")
 expand_mode = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=995034893]
@@ -288,10 +275,13 @@ shape = SubResource("CircleShape2D_ycmb3")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D2" unique_id=624001703]
-position = Vector2(21.766447, 0)
-sprite_frames = SubResource("SpriteFrames_dr13l")
+position = Vector2(35.314953, 5.7747717)
+scale = Vector2(0.18204974, 0.18204974)
+sprite_frames = SubResource("SpriteFrames_apkwe")
 autoplay = "default"
+frame_progress = 0.96691334
 offset = Vector2(20.35, 0)
+flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785672205]
 zoom = Vector2(2.5, 2.5)
@@ -342,7 +332,7 @@ theme_override_font_sizes/font_size = 155
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o5g77")
-text = "Hey girl."
+text = "Hello!"
 
 [node name="option2" type="Button" parent="Control/Control" unique_id=304648043]
 layout_mode = 0
@@ -356,7 +346,13 @@ theme_override_font_sizes/font_size = 155
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o5g77")
-text = "Uhm Hello."
+text = "What's the plan?"
+
+[node name="gun" type="Sprite2D" parent="." unique_id=716584110]
+visible = false
+position = Vector2(128, 32)
+scale = Vector2(-1.6988791, 1.6988788)
+texture = ExtResource("7_bursa")
 
 [connection signal="pressed" from="Control/Control/option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="Control/Control/option2" to="." method="_on_option_2_pressed"]

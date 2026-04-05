@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b6twjcd1abr7a"]
+
+[ext_resource type="Script" uid="uid://biknhg31kc0a" path="res://scripts/later.gd" id="1_0drfs"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="2_rpwfs"]
+
+[node name="Node2D" type="Node2D" unique_id=1691131111]
+script = ExtResource("1_0drfs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1879235825]
+
+[node name="Control" type="Control" parent="." unique_id=1593660137]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -639.0
+offset_top = -354.0
+offset_right = -599.0
+offset_bottom = -314.0
+scale = Vector2(2.0042253, 2.0042253)
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=690752141]
+layout_mode = 0
+offset_left = -64.86297
+offset_top = -34.42726
+offset_right = -24.862968
+offset_bottom = 5.5727386
+scale = Vector2(18.531776, 11.116961)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control" unique_id=1921108863]
+layout_mode = 0
+offset_left = 104.99999
+offset_top = 143.99998
+offset_right = 4729.0
+offset_bottom = 894.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("2_rpwfs")
+theme_override_font_sizes/font_size = 550
+text = "Later at night ..."

@@ -35,8 +35,11 @@ func _input(event: InputEvent) -> void:
 		print(cur)
 		if cur < 8: 
 			scene()
-		else:
+		elif cur == 8:
 			sp("Bruh.", 1)
+			cur += 1
+		else:
+			get_tree().change_scene_to_file("res://scenes/phone2.tscn")
 	
 
 
