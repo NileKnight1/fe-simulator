@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 func sp(msg, co):
 	chat.text = msg
 	if co == 1:  chat.add_theme_color_override("font_color", Color("39a8c4"))
-	else: chat.add_theme_color_override("font_color", Color("3e2396ff"))
+	else: chat.add_theme_color_override("font_color", Color("cbb95a"))
 	#option1.text = op1
 	#option2.text = op2
 

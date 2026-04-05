@@ -1,0 +1,387 @@
+[gd_scene format=3 uid="uid://d0can2vwj5btb"]
+
+[ext_resource type="Script" uid="uid://ds4mu13yu524f" path="res://scripts/tutorial.gd" id="1_4kmhl"]
+[ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_cq4me"]
+[ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_6yjpi"]
+[ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_4kmhl"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_cq4me"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kmhl"]
+bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4kmhl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+distance = 7.1364746
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.11119685, 0.11119684, 0.11119684, 0.98800004)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.9819477, 0.22538659, 0.2508528, 0.98800004)
+
+[node name="game" type="Node2D" unique_id=1594935208]
+script = ExtResource("1_4kmhl")
+
+[node name="map" type="Node2D" parent="." unique_id=572353439]
+
+[node name="Panel" type="Panel" parent="map" unique_id=2073376833]
+offset_left = -640.0
+offset_top = -247.00002
+offset_right = -600.0
+offset_bottom = -207.00002
+scale = Vector2(57.764946, 0.30142125)
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kmhl")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="map" unique_id=1423646902]
+position = Vector2(0, -247)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D5" unique_id=1742228472]
+rotation = -3.1415927
+shape = SubResource("WorldBoundaryShape2D_4kmhl")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="map" unique_id=507679776]
+position = Vector2(0, -45)
+rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D6" unique_id=1244586131]
+rotation = -3.1415927
+shape = SubResource("WorldBoundaryShape2D_4kmhl")
+
+[node name="Panel2" type="Panel" parent="map" unique_id=748932096]
+offset_left = -640.00006
+offset_top = -45.0
+offset_right = -600.00006
+offset_bottom = -5.0
+scale = Vector2(57.88494, 0.30142125)
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kmhl")
+
+[node name="ColorRect" type="ColorRect" parent="map" unique_id=1508112161]
+offset_left = -1533.0
+offset_top = -900.0
+offset_right = -1493.0
+offset_bottom = -860.0
+scale = Vector2(81.98942, 51.284763)
+color = Color(0.27603957, 0.0062026693, 0.007974861, 0.78400004)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map" unique_id=704312553]
+position = Vector2(-1015, -638)
+scale = Vector2(54.75857, 32.565327)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D" unique_id=89303034]
+position = Vector2(18.499386, 0)
+rotation = -3.1415925
+scale = Vector2(0.01826198, 0.030707505)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="map" unique_id=1666253679]
+position = Vector2(-2041.9999, -247.00009)
+scale = Vector2(54.75857, 32.565327)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D2" unique_id=692721159]
+position = Vector2(18.499386, 0)
+rotation = -4.712389
+scale = Vector2(0.01826198, 0.030707505)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+one_way_collision = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="map" unique_id=388482307]
+position = Vector2(-1015, 664.9999)
+scale = Vector2(54.75857, 32.565327)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D3" unique_id=152762201]
+position = Vector2(18.535912, 0.18424878)
+scale = Vector2(0.01826198, 0.030707505)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+one_way_collision = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="map" unique_id=882257110]
+position = Vector2(-1015, -638)
+scale = Vector2(54.75857, 32.565327)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D4" unique_id=1311297519]
+position = Vector2(40.17636, 19.49927)
+rotation = -1.5707964
+scale = Vector2(0.01826198, 0.030707505)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+one_way_collision = true
+
+[node name="idles" type="Node2D" parent="." unique_id=2048563094]
+
+[node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_cq4me")]
+position = Vector2(-724, 976)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle2" parent="idles" unique_id=1056592274 instance=ExtResource("2_cq4me")]
+position = Vector2(-568, 872)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle3" parent="idles" unique_id=228954860 instance=ExtResource("2_cq4me")]
+position = Vector2(-897, 872)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle4" parent="idles" unique_id=1181317442 instance=ExtResource("2_cq4me")]
+position = Vector2(59, 118)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle5" parent="idles" unique_id=1803484362 instance=ExtResource("2_cq4me")]
+position = Vector2(-147.99997, 218)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle6" parent="idles" unique_id=1693781451 instance=ExtResource("2_cq4me")]
+position = Vector2(-368.99997, 893)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle7" parent="idles" unique_id=966144945 instance=ExtResource("2_cq4me")]
+position = Vector2(78, 876)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle8" parent="idles" unique_id=163396932 instance=ExtResource("2_cq4me")]
+position = Vector2(900, -289)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle9" parent="idles" unique_id=292010945 instance=ExtResource("2_cq4me")]
+position = Vector2(571, -289)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle10" parent="idles" unique_id=784006630 instance=ExtResource("2_cq4me")]
+position = Vector2(861, 18)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle11" parent="idles" unique_id=1741899606 instance=ExtResource("2_cq4me")]
+position = Vector2(1099, -134)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle12" parent="idles" unique_id=1365972062 instance=ExtResource("2_cq4me")]
+position = Vector2(1099, -268)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle13" parent="idles" unique_id=740180763 instance=ExtResource("2_cq4me")]
+position = Vector2(-615, 301)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle14" parent="idles" unique_id=1387851830 instance=ExtResource("2_cq4me")]
+position = Vector2(-459, 197)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle15" parent="idles" unique_id=657706672 instance=ExtResource("2_cq4me")]
+position = Vector2(-788, 197)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle16" parent="idles" unique_id=546339682 instance=ExtResource("2_cq4me")]
+position = Vector2(-498, 504)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle17" parent="idles" unique_id=934977185 instance=ExtResource("2_cq4me")]
+position = Vector2(304, 404)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle18" parent="idles" unique_id=1815070068 instance=ExtResource("2_cq4me")]
+position = Vector2(542, 118)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle19" parent="idles" unique_id=770201970 instance=ExtResource("2_cq4me")]
+position = Vector2(-741, -45)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle20" parent="idles" unique_id=1252603881 instance=ExtResource("2_cq4me")]
+position = Vector2(-1169, 864)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle21" parent="idles" unique_id=899578555 instance=ExtResource("2_cq4me")]
+position = Vector2(-502.99997, -331)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle22" parent="idles" unique_id=22650639 instance=ExtResource("2_cq4me")]
+position = Vector2(-209.00003, -423.00003)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle23" parent="idles" unique_id=1143654934 instance=ExtResource("2_cq4me")]
+position = Vector2(-170, -310.00003)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle24" parent="idles" unique_id=1065706983 instance=ExtResource("2_cq4me")]
+position = Vector2(-802, -444)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle25" parent="idles" unique_id=654423080 instance=ExtResource("2_cq4me")]
+position = Vector2(204.99994, -465.00003)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle26" parent="idles" unique_id=2053245687 instance=ExtResource("2_cq4me")]
+position = Vector2(961, -531)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle27" parent="idles" unique_id=259983488 instance=ExtResource("2_cq4me")]
+position = Vector2(961, 280)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle28" parent="idles" unique_id=718069864 instance=ExtResource("2_cq4me")]
+position = Vector2(795, 551)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle29" parent="idles" unique_id=1877073777 instance=ExtResource("2_cq4me")]
+position = Vector2(-1.999939, 551)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle30" parent="idles" unique_id=906392035 instance=ExtResource("2_cq4me")]
+position = Vector2(1389, 504)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle31" parent="idles" unique_id=1465482533 instance=ExtResource("2_cq4me")]
+position = Vector2(1099.0001, 843)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle32" parent="idles" unique_id=1116167231 instance=ExtResource("2_cq4me")]
+position = Vector2(488, 822)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle33" parent="idles" unique_id=405005900 instance=ExtResource("2_cq4me")]
+position = Vector2(-292, 801.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle34" parent="idles" unique_id=1526206313 instance=ExtResource("2_cq4me")]
+position = Vector2(-863, 551)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle35" parent="idles" unique_id=299596211 instance=ExtResource("2_cq4me")]
+position = Vector2(-1230, 301)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle36" parent="idles" unique_id=1973918584 instance=ExtResource("2_cq4me")]
+position = Vector2(-1169.0001, -85)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle37" parent="idles" unique_id=157648876 instance=ExtResource("2_cq4me")]
+position = Vector2(-1169.0001, -416)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle38" parent="idles" unique_id=117311775 instance=ExtResource("2_cq4me")]
+position = Vector2(-554.0001, -752)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle39" parent="idles" unique_id=561726803 instance=ExtResource("2_cq4me")]
+position = Vector2(37, -696.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle40" parent="idles" unique_id=822339241 instance=ExtResource("2_cq4me")]
+position = Vector2(571, -696.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle41" parent="idles" unique_id=1230110901 instance=ExtResource("2_cq4me")]
+position = Vector2(1389, -465.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle42" parent="idles" unique_id=2028821318 instance=ExtResource("2_cq4me")]
+position = Vector2(1508.0001, 97)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
+position = Vector2(-24, -139.99998)
+scale = Vector2(4.3101068, 4.3101068)
+script = ExtResource("3_6yjpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=318384035]
+rotation = 3.1415927
+scale = Vector2(-0.036800735, -0.036800735)
+texture = ExtResource("4_4kmhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=250452460]
+scale = Vector2(0.6476333, 0.6476333)
+shape = SubResource("CircleShape2D_lbhrr")
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1911901642]
+zoom = Vector2(2.5, 2.5)
+limit_enabled = false
+limit_left = -1025
+limit_top = -638
+limit_right = 1182
+limit_bottom = 668
+position_smoothing_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+editor_draw_limits = true
+
+[node name="Area2D" type="Area2D" parent="player" unique_id=760344365]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D" unique_id=1714637194]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.6525201, 0.6525201)
+shape = SubResource("CircleShape2D_iywne")
+
+[node name="oxygens" type="Node2D" parent="." unique_id=333518228]
+
+[node name="carbons" type="Node2D" parent="." unique_id=274775227]
+
+[node name="chromiums" type="Node2D" parent="." unique_id=104017896]
+
+[node name="gui" type="CanvasLayer" parent="." unique_id=1002078055]
+
+[node name="time" type="Label" parent="gui" unique_id=186997263]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -792.0
+offset_top = -352.0
+offset_right = 745.0
+offset_bottom = 466.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 600
+text = "000 s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="gui" unique_id=1700327509]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 30.0
+offset_right = 46.0
+offset_bottom = 70.0
+
+[node name="Panel2" type="Panel" parent="gui/Control" unique_id=1271066620]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 80.0
+scale = Vector2(6, 1.189)
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbhrr")
+
+[node name="Panel3" type="Panel" parent="gui/Control" unique_id=1976416442]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 80.0
+scale = Vector2(6, 1.189)
+theme_override_styles/panel = SubResource("StyleBoxFlat_iywne")
+
+[node name="Label" type="Label" parent="gui" unique_id=483993567]
+offset_left = 381.00003
+offset_top = 660.00006
+offset_right = 2347.0
+offset_bottom = 894.00006
+scale = Vector2(0.26080146, 0.26080146)
+theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
+theme_override_fonts/font = ExtResource("5_cq4me")
+theme_override_font_sizes/font_size = 95
+text = "DO YOU HEAR ME?"
+horizontal_alignment = 1
+vertical_alignment = 1
