@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxnrps3g500uo" path="res://assets/PixelArt Phone.png" id="6_jmr6v"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="6_mseb3"]
 [ext_resource type="Texture2D" uid="uid://bmt6c0yq5d88d" path="res://assets/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg" id="7_sfhd4"]
+[ext_resource type="Texture2D" uid="uid://bf1a6tmnyclbp" path="res://assets/image.jpg" id="8_mseb3"]
 [ext_resource type="Texture2D" uid="uid://cyqkbdu22uivl" path="res://assets/chat-gpt-gives-blank-responses-v0-byq55kvnbcxf1.png" id="8_swfme"]
 [ext_resource type="Texture2D" uid="uid://csooab0head6s" path="res://assets/12222560.png" id="9_3rig2"]
 [ext_resource type="Texture2D" uid="uid://mpgiuogex38a" path="res://assets/user-icon-on-transparent-background-free-png.webp" id="10_mseb3"]
@@ -323,6 +324,7 @@ offset_right = 1038.0
 offset_bottom = 894.0
 scale = Vector2(0.024785358, 0.024785358)
 texture_normal = ExtResource("7_sfhd4")
+texture_hover = ExtResource("8_mseb3")
 
 [node name="objects" type="Control" parent="." unique_id=691933945]
 layout_mode = 3
