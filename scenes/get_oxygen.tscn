@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://d0can2vwj5btb"]
+[gd_scene format=3 uid="uid://dj27vr17g08dh"]
 
-[ext_resource type="Script" uid="uid://ds4mu13yu524f" path="res://scripts/tutorial.gd" id="1_4kmhl"]
-[ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_cq4me"]
-[ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_6yjpi"]
-[ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_4kmhl"]
-[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_cq4me"]
-[ext_resource type="PackedScene" uid="uid://cwpkee8rtqm2o" path="res://scenes/rbc.tscn" id="6_6yjpi"]
-[ext_resource type="PackedScene" uid="uid://cx2icvk53xmdy" path="res://scenes/macrophage.tscn" id="7_gbqnl"]
-[ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="8_ckvwl"]
+[ext_resource type="Script" uid="uid://b5w71mc844jgg" path="res://scripts/get_oxygen.gd" id="1_pfh4p"]
+[ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_xyd8a"]
+[ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_ic61s"]
+[ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_i1g06"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_tcll3"]
+[ext_resource type="PackedScene" uid="uid://cwpkee8rtqm2o" path="res://scenes/rbc.tscn" id="6_iu0p0"]
+[ext_resource type="PackedScene" uid="uid://cx2icvk53xmdy" path="res://scenes/macrophage.tscn" id="7_d8lhr"]
+[ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="8_vju6o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kmhl"]
 bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
@@ -17,9 +17,6 @@ bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 distance = 7.1364746
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yjpi"]
-size = Vector2(25, 29.125)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq4me"]
 bg_color = Color(0.2509804, 0.003921569, 0.011764706, 1)
 corner_radius_top_left = 400
@@ -28,15 +25,12 @@ corner_radius_bottom_right = 400
 corner_radius_bottom_left = 400
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6yjpi"]
-a = Vector2(190, -100)
-b = Vector2(218, 2)
+a = Vector2(231, -102)
+b = Vector2(233, 89)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cq4me"]
 a = Vector2(167, 31)
 b = Vector2(241, -45)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbqnl"]
-size = Vector2(0.8635044, 15.255737)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 
@@ -48,10 +42,8 @@ bg_color = Color(0.11119685, 0.11119684, 0.11119684, 0.98800004)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
 bg_color = Color(0.9819477, 0.22538659, 0.2508528, 0.98800004)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gbqnl"]
-
 [node name="game" type="Node2D" unique_id=1594935208]
-script = ExtResource("1_4kmhl")
+script = ExtResource("1_pfh4p")
 
 [node name="map" type="Node2D" parent="." unique_id=572353439]
 
@@ -117,18 +109,7 @@ scale = Vector2(0.01826198, 0.030707505)
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 one_way_collision = true
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="map" unique_id=882257110]
-position = Vector2(-1015, -638)
-scale = Vector2(54.75857, 32.565327)
-
 [node name="gate1" type="Node2D" parent="map" unique_id=1046934903]
-
-[node name="run" type="Area2D" parent="map/gate1" unique_id=536885973]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/gate1/run" unique_id=1699412667]
-position = Vector2(-1055, -135.5)
-scale = Vector2(2.4, 8)
-shape = SubResource("RectangleShape2D_6yjpi")
 
 [node name="Panel3" type="Panel" parent="map/gate1" unique_id=847398334]
 offset_left = 352.00003
@@ -160,42 +141,12 @@ shape = SubResource("SegmentShape2D_cq4me")
 
 [node name="gate2" type="Node2D" parent="map" unique_id=647043025]
 
-[node name="Panel3" type="Panel" parent="map/gate2" unique_id=295219227]
-offset_left = -2810.9998
-offset_top = -242.99998
-offset_right = -2792.9998
-offset_bottom = -158.99998
-rotation = -0.2617994
-scale = Vector2(1, 1.4250085)
-theme_override_styles/panel = SubResource("StyleBoxFlat_cq4me")
-
-[node name="Panel4" type="Panel" parent="map/gate2" unique_id=1300671949]
-offset_left = -2842.9998
-offset_top = -30.000015
-offset_right = -2824.9998
-offset_bottom = 53.999985
-rotation = -2.3561945
-scale = Vector2(1, 1.4250085)
-theme_override_styles/panel = SubResource("StyleBoxFlat_cq4me")
-
 [node name="StaticBody2D7" type="StaticBody2D" parent="map/gate2" unique_id=811242050]
 position = Vector2(-3163, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/gate2/StaticBody2D7" unique_id=99006880]
 position = Vector2(165, -134)
 shape = SubResource("SegmentShape2D_6yjpi")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/gate2/StaticBody2D7" unique_id=932035930]
-position = Vector2(144, -78)
-shape = SubResource("SegmentShape2D_cq4me")
-
-[node name="run" type="Area2D" parent="map" unique_id=1988206673]
-position = Vector2(1508, -3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/run" unique_id=2110266290]
-position = Vector2(-1055, -135.5)
-scale = Vector2(2.4, 8)
-shape = SubResource("RectangleShape2D_6yjpi")
 
 [node name="gate3" type="Node2D" parent="map" unique_id=1229406380]
 visible = false
@@ -232,211 +183,185 @@ position = Vector2(144, -78)
 shape = SubResource("SegmentShape2D_cq4me")
 disabled = true
 
-[node name="macrorun" type="Area2D" parent="map" unique_id=1396420044]
-position = Vector2(-1230, -3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/macrorun" unique_id=1541540625]
-position = Vector2(-1055, -135.5)
-scale = Vector2(2.4, 8)
-shape = SubResource("RectangleShape2D_6yjpi")
-
-[node name="rbcchat" type="Area2D" parent="map" unique_id=1144846311]
-position = Vector2(1713, -3)
-scale = Vector2(0.96506673, 1.5813719)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/rbcchat" unique_id=913940958]
-position = Vector2(-635.18933, -88.84693)
-scale = Vector2(2.4, 8.000004)
-shape = SubResource("RectangleShape2D_gbqnl")
-
-[node name="checkpoint" type="Area2D" parent="map" unique_id=274019417]
-position = Vector2(2886, -3)
-scale = Vector2(0.96506673, 1.5813719)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/checkpoint" unique_id=2047856093]
-position = Vector2(-635.18933, -88.84693)
-scale = Vector2(2.4, 8.000004)
-shape = SubResource("RectangleShape2D_gbqnl")
-
 [node name="idles" type="Node2D" parent="." unique_id=2048563094]
 
-[node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_cq4me")]
+[node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_xyd8a")]
 position = Vector2(-724, 976)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle2" parent="idles" unique_id=1056592274 instance=ExtResource("2_cq4me")]
+[node name="idle2" parent="idles" unique_id=1056592274 instance=ExtResource("2_xyd8a")]
 position = Vector2(1562, -109.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle3" parent="idles" unique_id=228954860 instance=ExtResource("2_cq4me")]
+[node name="idle3" parent="idles" unique_id=228954860 instance=ExtResource("2_xyd8a")]
 position = Vector2(1233, -109.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle4" parent="idles" unique_id=1181317442 instance=ExtResource("2_cq4me")]
+[node name="idle4" parent="idles" unique_id=1181317442 instance=ExtResource("2_xyd8a")]
 position = Vector2(59, 118)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle5" parent="idles" unique_id=1803484362 instance=ExtResource("2_cq4me")]
+[node name="idle5" parent="idles" unique_id=1803484362 instance=ExtResource("2_xyd8a")]
 position = Vector2(-147.99997, 218)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle6" parent="idles" unique_id=1693781451 instance=ExtResource("2_cq4me")]
+[node name="idle6" parent="idles" unique_id=1693781451 instance=ExtResource("2_xyd8a")]
 position = Vector2(1761, -88.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle7" parent="idles" unique_id=966144945 instance=ExtResource("2_cq4me")]
+[node name="idle7" parent="idles" unique_id=966144945 instance=ExtResource("2_xyd8a")]
 position = Vector2(2208, -105.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle8" parent="idles" unique_id=163396932 instance=ExtResource("2_cq4me")]
+[node name="idle8" parent="idles" unique_id=163396932 instance=ExtResource("2_xyd8a")]
 position = Vector2(900, -289)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle9" parent="idles" unique_id=292010945 instance=ExtResource("2_cq4me")]
+[node name="idle9" parent="idles" unique_id=292010945 instance=ExtResource("2_xyd8a")]
 position = Vector2(571, -289)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle10" parent="idles" unique_id=784006630 instance=ExtResource("2_cq4me")]
+[node name="idle10" parent="idles" unique_id=784006630 instance=ExtResource("2_xyd8a")]
 position = Vector2(861, 18)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle11" parent="idles" unique_id=1741899606 instance=ExtResource("2_cq4me")]
+[node name="idle11" parent="idles" unique_id=1741899606 instance=ExtResource("2_xyd8a")]
 position = Vector2(1099, -134)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle12" parent="idles" unique_id=1365972062 instance=ExtResource("2_cq4me")]
+[node name="idle12" parent="idles" unique_id=1365972062 instance=ExtResource("2_xyd8a")]
 position = Vector2(1099, -268)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle13" parent="idles" unique_id=740180763 instance=ExtResource("2_cq4me")]
+[node name="idle13" parent="idles" unique_id=740180763 instance=ExtResource("2_xyd8a")]
 position = Vector2(-2232, -127)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle14" parent="idles" unique_id=1387851830 instance=ExtResource("2_cq4me")]
+[node name="idle14" parent="idles" unique_id=1387851830 instance=ExtResource("2_xyd8a")]
 position = Vector2(-459, 197)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle15" parent="idles" unique_id=657706672 instance=ExtResource("2_cq4me")]
+[node name="idle15" parent="idles" unique_id=657706672 instance=ExtResource("2_xyd8a")]
 position = Vector2(-398.00006, -180.00002)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle16" parent="idles" unique_id=546339682 instance=ExtResource("2_cq4me")]
+[node name="idle16" parent="idles" unique_id=546339682 instance=ExtResource("2_xyd8a")]
 position = Vector2(-498, 504)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle17" parent="idles" unique_id=934977185 instance=ExtResource("2_cq4me")]
+[node name="idle17" parent="idles" unique_id=934977185 instance=ExtResource("2_xyd8a")]
 position = Vector2(304, 404)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle18" parent="idles" unique_id=1815070068 instance=ExtResource("2_cq4me")]
+[node name="idle18" parent="idles" unique_id=1815070068 instance=ExtResource("2_xyd8a")]
 position = Vector2(542, 118)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle19" parent="idles" unique_id=770201970 instance=ExtResource("2_cq4me")]
+[node name="idle19" parent="idles" unique_id=770201970 instance=ExtResource("2_xyd8a")]
 position = Vector2(-769.00006, -99.00001)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle20" parent="idles" unique_id=1252603881 instance=ExtResource("2_cq4me")]
+[node name="idle20" parent="idles" unique_id=1252603881 instance=ExtResource("2_xyd8a")]
 position = Vector2(961, -117.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle21" parent="idles" unique_id=899578555 instance=ExtResource("2_cq4me")]
+[node name="idle21" parent="idles" unique_id=899578555 instance=ExtResource("2_xyd8a")]
 position = Vector2(-502.99997, -331)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle22" parent="idles" unique_id=22650639 instance=ExtResource("2_cq4me")]
+[node name="idle22" parent="idles" unique_id=22650639 instance=ExtResource("2_xyd8a")]
 position = Vector2(-209.00003, -423.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle23" parent="idles" unique_id=1143654934 instance=ExtResource("2_cq4me")]
+[node name="idle23" parent="idles" unique_id=1143654934 instance=ExtResource("2_xyd8a")]
 position = Vector2(-170, -310.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle24" parent="idles" unique_id=1065706983 instance=ExtResource("2_cq4me")]
+[node name="idle24" parent="idles" unique_id=1065706983 instance=ExtResource("2_xyd8a")]
 position = Vector2(-802, -444)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle25" parent="idles" unique_id=654423080 instance=ExtResource("2_cq4me")]
+[node name="idle25" parent="idles" unique_id=654423080 instance=ExtResource("2_xyd8a")]
 position = Vector2(204.99994, -465.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle26" parent="idles" unique_id=2053245687 instance=ExtResource("2_cq4me")]
+[node name="idle26" parent="idles" unique_id=2053245687 instance=ExtResource("2_xyd8a")]
 position = Vector2(961, -531)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle27" parent="idles" unique_id=259983488 instance=ExtResource("2_cq4me")]
+[node name="idle27" parent="idles" unique_id=259983488 instance=ExtResource("2_xyd8a")]
 position = Vector2(961, 280)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle28" parent="idles" unique_id=718069864 instance=ExtResource("2_cq4me")]
+[node name="idle28" parent="idles" unique_id=718069864 instance=ExtResource("2_xyd8a")]
 position = Vector2(795, 551)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle29" parent="idles" unique_id=1877073777 instance=ExtResource("2_cq4me")]
+[node name="idle29" parent="idles" unique_id=1877073777 instance=ExtResource("2_xyd8a")]
 position = Vector2(-1.999939, 551)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle30" parent="idles" unique_id=906392035 instance=ExtResource("2_cq4me")]
+[node name="idle30" parent="idles" unique_id=906392035 instance=ExtResource("2_xyd8a")]
 position = Vector2(1389, 504)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle31" parent="idles" unique_id=1465482533 instance=ExtResource("2_cq4me")]
+[node name="idle31" parent="idles" unique_id=1465482533 instance=ExtResource("2_xyd8a")]
 position = Vector2(3229, -138.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle32" parent="idles" unique_id=1116167231 instance=ExtResource("2_cq4me")]
+[node name="idle32" parent="idles" unique_id=1116167231 instance=ExtResource("2_xyd8a")]
 position = Vector2(2618, -159.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle33" parent="idles" unique_id=405005900 instance=ExtResource("2_cq4me")]
+[node name="idle33" parent="idles" unique_id=405005900 instance=ExtResource("2_xyd8a")]
 position = Vector2(1838, -180)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle34" parent="idles" unique_id=1526206313 instance=ExtResource("2_cq4me")]
-position = Vector2(-863, 551)
+[node name="idle34" parent="idles" unique_id=1526206313 instance=ExtResource("2_xyd8a")]
+position = Vector2(-2772, -88)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle35" parent="idles" unique_id=299596211 instance=ExtResource("2_cq4me")]
+[node name="idle35" parent="idles" unique_id=299596211 instance=ExtResource("2_xyd8a")]
 position = Vector2(-1606.0001, -155)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle36" parent="idles" unique_id=1973918584 instance=ExtResource("2_cq4me")]
+[node name="idle36" parent="idles" unique_id=1973918584 instance=ExtResource("2_xyd8a")]
 position = Vector2(-1169.0001, -85)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle37" parent="idles" unique_id=157648876 instance=ExtResource("2_cq4me")]
+[node name="idle37" parent="idles" unique_id=157648876 instance=ExtResource("2_xyd8a")]
 position = Vector2(-1169.0001, -416)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle38" parent="idles" unique_id=117311775 instance=ExtResource("2_cq4me")]
+[node name="idle38" parent="idles" unique_id=117311775 instance=ExtResource("2_xyd8a")]
 position = Vector2(-554.0001, -752)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle39" parent="idles" unique_id=561726803 instance=ExtResource("2_cq4me")]
+[node name="idle39" parent="idles" unique_id=561726803 instance=ExtResource("2_xyd8a")]
 position = Vector2(37, -696.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle40" parent="idles" unique_id=822339241 instance=ExtResource("2_cq4me")]
+[node name="idle40" parent="idles" unique_id=822339241 instance=ExtResource("2_xyd8a")]
 position = Vector2(571, -696.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle41" parent="idles" unique_id=1230110901 instance=ExtResource("2_cq4me")]
+[node name="idle41" parent="idles" unique_id=1230110901 instance=ExtResource("2_xyd8a")]
 position = Vector2(1389, -465.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle42" parent="idles" unique_id=2028821318 instance=ExtResource("2_cq4me")]
+[node name="idle42" parent="idles" unique_id=2028821318 instance=ExtResource("2_xyd8a")]
 position = Vector2(1508.0001, 97)
 scale = Vector2(1.3200003, 1.3200003)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(-2, -139.99998)
+position = Vector2(-2728, -137.99998)
 scale = Vector2(4.3101068, 4.3101068)
-script = ExtResource("3_6yjpi")
+script = ExtResource("3_ic61s")
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=318384035]
 rotation = 3.1415927
 scale = Vector2(-0.036800735, -0.036800735)
-texture = ExtResource("4_4kmhl")
+texture = ExtResource("4_i1g06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=250452460]
 scale = Vector2(0.6476333, 0.6476333)
@@ -446,7 +371,7 @@ shape = SubResource("CircleShape2D_lbhrr")
 position = Vector2(0, -3.5402345e-06)
 ignore_rotation = false
 zoom = Vector2(2.5, 2.5)
-limit_right = 2206
+limit_left = -2766
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_left_margin = 0.05
@@ -531,7 +456,7 @@ offset_right = 4907.948
 offset_bottom = 894.00006
 scale = Vector2(0.26080146, 0.26080146)
 theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
-theme_override_fonts/font = ExtResource("5_cq4me")
+theme_override_fonts/font = ExtResource("5_tcll3")
 theme_override_font_sizes/font_size = 95
 text = "DO YOU HEAR ME?"
 horizontal_alignment = 1
@@ -542,45 +467,32 @@ autowrap_mode = 2
 position = Vector2(243.00003, 53)
 scale = Vector2(1.2966721, 1.2966721)
 
-[node name="atom" parent="rbcs" unique_id=1026721344 instance=ExtResource("6_6yjpi")]
+[node name="atom" parent="rbcs" unique_id=1026721344 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1426, -162)
 
-[node name="atom2" parent="rbcs" unique_id=641320930 instance=ExtResource("6_6yjpi")]
+[node name="atom2" parent="rbcs" unique_id=641320930 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1358.092, -163.49542)
 
-[node name="atom3" parent="rbcs" unique_id=1632874466 instance=ExtResource("6_6yjpi")]
+[node name="atom3" parent="rbcs" unique_id=1632874466 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1234, -190)
 
-[node name="atom4" parent="rbcs" unique_id=1846738109 instance=ExtResource("6_6yjpi")]
+[node name="atom4" parent="rbcs" unique_id=1846738109 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1514.6465, -185.08917)
 
-[node name="atom5" parent="rbcs" unique_id=698044122 instance=ExtResource("6_6yjpi")]
+[node name="atom5" parent="rbcs" unique_id=698044122 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1515, -119.999985)
 
-[node name="atom6" parent="rbcs" unique_id=1715454613 instance=ExtResource("6_6yjpi")]
+[node name="atom6" parent="rbcs" unique_id=1715454613 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1304.8788, -189.7164)
 
-[node name="atom7" parent="rbcs" unique_id=1290333632 instance=ExtResource("6_6yjpi")]
+[node name="atom7" parent="rbcs" unique_id=1290333632 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1622.6152, -150.38496)
 
-[node name="atom8" parent="rbcs" unique_id=595973224 instance=ExtResource("6_6yjpi")]
+[node name="atom8" parent="rbcs" unique_id=595973224 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1402.8219, -111.82472)
 
-[node name="atom9" parent="rbcs" unique_id=1437111007 instance=ExtResource("6_6yjpi")]
+[node name="atom9" parent="rbcs" unique_id=1437111007 instance=ExtResource("6_iu0p0")]
 position = Vector2(-1234, -127)
-
-[node name="macro" type="Node2D" parent="." unique_id=333144015]
-
-[node name="macro" parent="macro" unique_id=1175269011 instance=ExtResource("7_gbqnl")]
-position = Vector2(-2595, -141.99994)
-scale = Vector2(3.658059, 3.658059)
-
-[node name="Area2D" type="Area2D" parent="macro" unique_id=1592715264]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="macro/Area2D" unique_id=473981705]
-position = Vector2(-2595, -141.99994)
-scale = Vector2(6.1184072, 6.1184072)
-shape = SubResource("CircleShape2D_gbqnl")
 
 [node name="macro_ex" type="Node2D" parent="." unique_id=2129430983]
 visible = false
@@ -588,7 +500,7 @@ visible = false
 [node name="macro2" type="Node2D" parent="macro_ex" unique_id=1757347545]
 position = Vector2(2800, 0)
 
-[node name="macro" parent="macro_ex/macro2" unique_id=1798862057 instance=ExtResource("7_gbqnl")]
+[node name="macro" parent="macro_ex/macro2" unique_id=1798862057 instance=ExtResource("7_d8lhr")]
 position = Vector2(-2595, -141.99994)
 scale = Vector2(3.658059, 3.658059)
 
@@ -608,39 +520,6 @@ offset_right = 1247.0
 offset_bottom = 110.99997
 rotation = -0.22340214
 scale = Vector2(0.108430274, 0.108430274)
-theme_override_fonts/font = ExtResource("8_ckvwl")
+theme_override_fonts/font = ExtResource("8_vju6o")
 theme_override_font_sizes/font_size = 309
 text = "Macrophage"
-
-[node name="rbc_ex" type="Node2D" parent="." unique_id=945408310]
-visible = false
-position = Vector2(839, 0)
-
-[node name="ColorRect" type="ColorRect" parent="rbc_ex" unique_id=1384820016]
-offset_left = 334.2119
-offset_top = -270.4574
-offset_right = 634.74023
-offset_bottom = -257.78156
-rotation = -0.22340214
-scale = Vector2(-1.3269428, -8.502392)
-color = Color(0.23448718, 0.0040770597, 0.06420185, 1)
-
-[node name="Label" type="Label" parent="rbc_ex" unique_id=351330808]
-offset_left = 67.0
-offset_top = -252.00049
-offset_right = 1254.0
-offset_bottom = 111.99951
-rotation = -0.22340214
-scale = Vector2(0.108430274, 0.108430274)
-theme_override_fonts/font = ExtResource("8_ckvwl")
-theme_override_font_sizes/font_size = 309
-text = "RBCs"
-
-[connection signal="area_entered" from="map/gate1/run" to="." method="_on_run_area_entered"]
-[connection signal="body_entered" from="map/gate1/run" to="." method="_on_run_body_entered"]
-[connection signal="body_entered" from="map/run" to="." method="_on_run3_body_entered"]
-[connection signal="body_entered" from="map/macrorun" to="." method="_on_run_2_body_entered"]
-[connection signal="area_entered" from="map/rbcchat" to="." method="_on_run_area_entered"]
-[connection signal="body_entered" from="map/rbcchat" to="." method="_on_rbc_chat_body_entered"]
-[connection signal="body_entered" from="map/checkpoint" to="." method="_on_checkpoint_entered"]
-[connection signal="body_entered" from="macro/Area2D" to="." method="_on_area_2d_body_entered"]

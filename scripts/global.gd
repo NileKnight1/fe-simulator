@@ -1,10 +1,10 @@
 extends Node
 
 var player_speed = 300
-var player_boost = 8
+var player_boost = 1.5
 var max_health = 50
-
 var game_script = null
+var scene1_chat = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

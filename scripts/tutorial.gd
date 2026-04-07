@@ -2,33 +2,20 @@ extends Node2D
 
 
 @onready var player = $player
-@onready var static_script = preload("res://scripts/static.gd")
-@onready var moving_script = preload("res://scripts/moving.gd")
-
-
-@onready var oxygenS = preload("res://scenes/oxygen.tscn")
-@onready var carbonS = preload("res://scenes/carbon.tscn")
-@onready var chromiumS = preload("res://scenes/chromium.tscn")
-
-
-@onready var oxygens = $oxygens
-@onready var carbons = $carbons
-@onready var chromiums = $chromiums
-
-@onready var time_label = $gui/time
 @onready var health_bar = $gui/Control/Panel3
 
 var macro_run = 0
 var safe = 0
-var cur = 13
+var cur = 0
 var not_now = 0
-var toHemo = 0
-var chromium_alloy = 0
 
 
 func _ready() -> void:
 	global.game_script = self
 	player.no_move = 1
+	if global.scene1_chat: 
+		cur = 16
+		player.no_move = 0
 	#moveRBCs()
 	#print(player.global_position)
 	print("started")
@@ -36,14 +23,8 @@ func _ready() -> void:
 	#death()
 
 func _physics_process(delta: float) -> void:
-	
-	for i in oxygens.get_children():
-		var pgp = player.global_position
-		var direction: Vector2 = pgp - i.global_position
-		var distance: float = direction.length()
-		if distance > 500:
-			i.queue_free()
-			spawn_oxygen()
+	pass
+
 
 
 func _input(event: InputEvent) -> void:
@@ -86,13 +67,7 @@ func scene():
 			player.no_move = 0
 			not_now = 1
 			sceneAuto(2)
-		15: 
-			sp("What do you see?", 2)
-			sceneAuto(1.5)
-		16: 
-			sp("Again? I answered.", 1)
-			sceneAuto(2)
-		17: sp("Explore the place.", 2)
+		15: sp("Explore the place.", 2)
 		
 
 func sceneAuto(t):
@@ -107,6 +82,12 @@ func _on_run_2_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player.get_child(0).texture = load("res://assets/ir1.png")
+	global.scene1_chat = 1
+	sp("OMG.", 1)
+	player.no_move = 1
+	await get_tree().create_timer(2.5).timeout
+	
+	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 
 func _on_run3_body_entered(body: Node2D) -> void:
 	if !macro_run: return 
@@ -131,7 +112,7 @@ func moveMacro():
 	macro_run = 1
 	$map/macrorun.queue_free()
 	var tween = get_tree().create_tween()
-	tween.tween_property($macro, "position:x", 2800, 25).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($macro, "position:x", 2800, 7.5).set_trans(Tween.TRANS_SINE)
 	await get_tree().create_timer(1).timeout
 	sp("WOAH.",1)
 	
@@ -142,7 +123,7 @@ func _on_rbc_chat_body_entered(body: Node2D) -> void:
 		player.no_move = 1
 		not_now = 0
 		cur = 0
-		$player.position.y = -140
+		$player.position = Vector2(1080,-140)
 		
 		scene2()
 
@@ -163,8 +144,8 @@ func scene2():
 			#$player/Camera2D.enabled = 0
 			#$macro_ex/Camera2D.enabled = 1
 			cam_switch($player/Camera2D, $player/macro)
-			await get_tree().create_timer(1).timeout
 			not_now =1
+			await get_tree().create_timer(1).timeout
 			sp("A macrophage.", 3)
 			not_now =0
 			
@@ -189,9 +170,9 @@ func scene2():
 		18:
 			cam_switch($player/Camera2D, $player/rbc)
 			$rbc_ex.visible = 1
-			await get_tree().create_timer(1).timeout
 			not_now =1
-			sp("Red Blood Cells.", 3)
+			await get_tree().create_timer(1).timeout
+			sp("Red Blood Cells", 3)
 			not_now =0
 		19: sp("Specialized cells that transport oxygen from the lungs to the rest of the body.", 3)
 		20: sp("We use hemoglobin to bind oxygen and release it to tissues where it is needed for energy.", 3)
@@ -200,13 +181,22 @@ func scene2():
 			$rbc_ex.visible = 0
 			
 			cam_switch($player/Camera2D, $player/temp)
+			
 		22:
+			var tween = get_tree().create_tween()
+			tween.tween_property($rbcs, "position:x", 6000, 5.0).set_trans(Tween.TRANS_SINE)
+			not_now = 1
+			await get_tree().create_timer(3).timeout
+			not_now = 0
+		23:
 			not_now = 1
 			player.no_move = 0
+			sp("", 1)
 		
-		
-		
-		
+
+func _on_checkpoint_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://scenes/get_oxygen.tscn")
+
 
 func cam_switch(cam1, cam2):
 	cam1.zoom = cam2.zoom
@@ -215,136 +205,10 @@ func cam_switch(cam1, cam2):
 	cam1.scale = cam2.scale
 
 
-func start_game():
-	pass
-
-func death():
-	#set_physics_process(false)
-	remove_children(oxygens)
-	remove_children(carbons)
-	remove_children(chromiums)
-	
-	#get_tree().change_scene_to_file("res://scenes/game.tscn")
-
 func refresh_health(pnt):
 	player.health += pnt
 	if player.health > global.max_health:
 		player.health = global.max_health
-	
-	#print(float(player.health)/float(global.max_health))
 	print((float(player.health)/float(global.max_health))*6)
-	#print()
 	
 	health_bar.scale.x = ((float(player.health)/float(global.max_health))*6)
-
-func spawn(list, new_object, script):
-	var pgp = player.global_position
-	
-	new_object.set_script(script)
-	list.add_child(new_object)
-	
-	new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
-	var direction: Vector2 = pgp - new_object.global_position
-	var distance: float = direction.length()
-	
-	
-	while distance < 150 || new_object.position.x > 1150 || new_object.position.x < -995 ||  new_object.position.y < -610 || new_object.position.y > 640 :
-		
-		new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
-		direction = pgp - new_object.global_position
-		distance = direction.length()
-
-func spawn_oxygen():
-	var new_object = oxygenS.instantiate()
-	spawn(oxygens, new_object, moving_script)
-
-func spawn_carbon():
-	var new_object = carbonS.instantiate()
-	spawn(carbons, new_object, static_script)
-
-func spawn_chromium():
-	var new_object = chromiumS.instantiate()
-	spawn(chromiums, new_object, static_script)
-
-func remove_children(list):
-	for i in list.get_children():
-		i.queue_free()
-
-func picked(atom):
-	match atom:
-		"oxygen":
-			oxygen()
-		"carbon":
-			carbon()
-		"hemo":
-			hemo()
-		"chromium":
-			chromium()
-		"macrophage":
-			macrophage()
-		"hcl":
-			hcl()
-		"water":
-			water()
-
-func oxygen():
-	if toHemo:
-		player.scale.x += 0.1
-		player.scale.y += 0.1
-		
-	else:
-		if chromium_alloy: return
-		
-		global.player_speed = 150
-		global.player_boost = 1.25
-		refresh_health(-15)
-		if player.health <= 0:
-			death()
-			return
-		player.get_child(0).texture = load("res://assets/ir2.png")
-		await get_tree().create_timer(3.0).timeout
-		if chromium_alloy: return
-		global.player_speed = 300
-		global.player_boost = 1.25
-		player.get_child(0).texture = load("res://assets/ir1.png")
-
-func carbon():
-	refresh_health(10)
-
-func hemo():
-	toHemo = 1
-	player.get_child(0).texture = load("res://assets/rbc.png")
-	player.get_child(1).scale = Vector2(0.585, 0.585)
-
-func chromium():
-	player.get_child(0).texture = load("res://assets/ir3.png")
-	chromium_alloy = 1
-	global.player_speed = 300
-	global.player_boost = 1.25
-	await get_tree().create_timer(10.0).timeout
-	player.get_child(0).texture = load("res://assets/ir1.png")
-	
-	chromium_alloy = 0
-	
-func macrophage():
-	if toHemo:
-		player.get_child(0).texture = load("res://assets/ir1.png")
-
-func hcl():
-	player.scale.x -= 0.5
-	player.scale.y -= 0.5
-
-func water():
-	if toHemo:
-		pass
-	else:
-		if chromium_alloy: return
-		
-		global.player_speed = 150
-		global.player_boost = 1.25
-		refresh_health(-25)
-		player.get_child(0).texture = load("res://assets/ir2.png")
-		await get_tree().create_timer(10.0).timeout
-		global.player_speed = 300
-		global.player_boost = 1.25
-		player.get_child(0).texture = load("res://assets/ir1.png")
