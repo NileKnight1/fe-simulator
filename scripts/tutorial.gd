@@ -18,6 +18,8 @@ extends Node2D
 @onready var time_label = $gui/time
 @onready var health_bar = $gui/Control/Panel3
 
+var macro_run = 0
+var safe = 0
 var cur = 13
 var not_now = 0
 var toHemo = 0
@@ -48,13 +50,20 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("action"):
 		if not_now: return
 		print(cur)
-		scene()
+		
+		scene_choose()
 
 func sp(msg, co):
 	$gui/Label.text = msg
 	if co == 1:  $gui/Label.add_theme_color_override("font_color", Color("39a8c4"))
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
+	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("f8918fff"))
+	
+
+func scene_choose():
+	if !safe: scene()
+	else: scene2()
 
 func scene():
 	cur += 1
@@ -89,19 +98,68 @@ func scene():
 func sceneAuto(t):
 		await get_tree().create_timer(t).timeout
 		scene()
-		
-func moveRBCs():
-	$map/gate1.queue_free()
-	var tween = get_tree().create_tween()
-	tween.tween_property($rbcs, "position:x", 3000, 7.0).set_trans(Tween.TRANS_SINE)
-	await get_tree().create_timer(4).timeout
-	
-	sp("Run.", 0)
-	
 
 func _on_run_body_entered(body: Node2D) -> void:
-	if body == player :moveRBCs()
+	if body == player: moveRBCs()
 
+func _on_run_2_body_entered(body: Node2D) -> void:
+	if body == player: moveMacro()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	player.get_child(0).texture = load("res://assets/ir1.png")
+
+func _on_run3_body_entered(body: Node2D) -> void:
+	if !macro_run: return 
+	if body == player:
+		$map/gate3.visible = 1
+		$map/gate3/StaticBody2D7/CollisionShape2D.set_deferred("disabled", 0) 
+		$map/gate3/StaticBody2D7/CollisionShape2D2.set_deferred("disabled", 0)
+		safe = 1
+
+func moveRBCs():
+	$map/gate1.queue_free()
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property($rbcs, "position:x", 3000, 7.0).set_trans(Tween.TRANS_SINE)
+	
+	await get_tree().create_timer(4).timeout
+	sp("Run.", 0)
+	await get_tree().create_timer(1.5).timeout
+	sp("What's going on?", 1)
+
+func moveMacro():
+	macro_run = 1
+	$map/macrorun.queue_free()
+	var tween = get_tree().create_tween()
+	tween.tween_property($macro, "position:x", 2800, 25).set_trans(Tween.TRANS_SINE)
+	await get_tree().create_timer(1).timeout
+	sp("WOAH.",1)
+	
+
+func _on_rbc_chat_body_entered(body: Node2D) -> void:
+	if body == player:
+		$map/rbcchat.queue_free()
+		player.no_move = 1
+		not_now = 0
+		cur = 0
+		
+		scene2()
+
+func scene2():
+	cur += 1
+	
+	match cur:
+		1: sp("Hello.", 1)
+		2: sp("You look new.", 3)
+		3: sp("I guess I am.", 1)
+		4: sp("Welcome.", 3)
+		5: sp("What was that big thing?.", 1)
+		6: sp("A macrophage.", 3)
+		7: sp("What?", 1)
+		8: 
+			sp("A macrophage.", 3)
+		
+		
 
 func start_game():
 	pass
