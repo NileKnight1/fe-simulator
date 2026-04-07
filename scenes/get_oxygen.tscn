@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_ic61s"]
 [ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_i1g06"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_tcll3"]
-[ext_resource type="PackedScene" uid="uid://cwpkee8rtqm2o" path="res://scenes/rbc.tscn" id="6_iu0p0"]
-[ext_resource type="PackedScene" uid="uid://cx2icvk53xmdy" path="res://scenes/macrophage.tscn" id="7_d8lhr"]
+[ext_resource type="PackedScene" uid="uid://blro6h3ya3rp0" path="res://scenes/oxygen2.tscn" id="7_kbcmb"]
+[ext_resource type="Script" uid="uid://x5okw2kascyc" path="res://scripts/static.gd" id="8_pfh4p"]
 [ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="8_vju6o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kmhl"]
@@ -32,6 +32,8 @@ b = Vector2(233, 89)
 a = Vector2(167, 31)
 b = Vector2(241, -45)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kbcmb"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
@@ -40,7 +42,7 @@ b = Vector2(241, -45)
 bg_color = Color(0.11119685, 0.11119684, 0.11119684, 0.98800004)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
-bg_color = Color(0.9819477, 0.22538659, 0.2508528, 0.98800004)
+bg_color = Color(0.2344518, 0.5930889, 0.79942304, 0.9882353)
 
 [node name="game" type="Node2D" unique_id=1594935208]
 script = ExtResource("1_pfh4p")
@@ -110,6 +112,7 @@ shape = SubResource("WorldBoundaryShape2D_lbhrr")
 one_way_collision = true
 
 [node name="gate1" type="Node2D" parent="map" unique_id=1046934903]
+position = Vector2(-48, -268)
 
 [node name="Panel3" type="Panel" parent="map/gate1" unique_id=847398334]
 offset_left = 352.00003
@@ -182,6 +185,13 @@ disabled = true
 position = Vector2(144, -78)
 shape = SubResource("SegmentShape2D_cq4me")
 disabled = true
+
+[node name="Area2D" type="Area2D" parent="map" unique_id=1397697384]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D" unique_id=1576711]
+position = Vector2(31, -3.0000005)
+scale = Vector2(3.7084627, -26.35075)
+shape = SubResource("SegmentShape2D_kbcmb")
 
 [node name="idles" type="Node2D" parent="." unique_id=2048563094]
 
@@ -354,7 +364,7 @@ position = Vector2(1508.0001, 97)
 scale = Vector2(1.3200003, 1.3200003)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(-2728, -137.99998)
+position = Vector2(-87, -138)
 scale = Vector2(4.3101068, 4.3101068)
 script = ExtResource("3_ic61s")
 
@@ -397,8 +407,8 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 editor_draw_limits = true
 
-[node name="macro" type="Camera2D" parent="player" unique_id=432407399]
-position = Vector2(-190.7146, 2.5521393)
+[node name="oxygen" type="Camera2D" parent="player" unique_id=432407399]
+position = Vector2(56.843185, 2.5521393)
 rotation = 0.17453292
 scale = Vector2(0.23201281, 0.23201281)
 ignore_rotation = false
@@ -463,57 +473,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="rbcs" type="Node2D" parent="." unique_id=394209629]
-position = Vector2(243.00003, 53)
-scale = Vector2(1.2966721, 1.2966721)
-
-[node name="atom" parent="rbcs" unique_id=1026721344 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1426, -162)
-
-[node name="atom2" parent="rbcs" unique_id=641320930 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1358.092, -163.49542)
-
-[node name="atom3" parent="rbcs" unique_id=1632874466 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1234, -190)
-
-[node name="atom4" parent="rbcs" unique_id=1846738109 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1514.6465, -185.08917)
-
-[node name="atom5" parent="rbcs" unique_id=698044122 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1515, -119.999985)
-
-[node name="atom6" parent="rbcs" unique_id=1715454613 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1304.8788, -189.7164)
-
-[node name="atom7" parent="rbcs" unique_id=1290333632 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1622.6152, -150.38496)
-
-[node name="atom8" parent="rbcs" unique_id=595973224 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1402.8219, -111.82472)
-
-[node name="atom9" parent="rbcs" unique_id=1437111007 instance=ExtResource("6_iu0p0")]
-position = Vector2(-1234, -127)
-
-[node name="macro_ex" type="Node2D" parent="." unique_id=2129430983]
+[node name="oxygen_ex" type="Node2D" parent="." unique_id=2129430983]
 visible = false
 
-[node name="macro2" type="Node2D" parent="macro_ex" unique_id=1757347545]
-position = Vector2(2800, 0)
-
-[node name="macro" parent="macro_ex/macro2" unique_id=1798862057 instance=ExtResource("7_d8lhr")]
-position = Vector2(-2595, -141.99994)
-scale = Vector2(3.658059, 3.658059)
-
-[node name="ColorRect" type="ColorRect" parent="macro_ex" unique_id=1076319216]
+[node name="ColorRect" type="ColorRect" parent="oxygen_ex" unique_id=1076319216]
 offset_left = 334.2119
 offset_top = -270.4574
 offset_right = 634.74023
 offset_bottom = -257.78156
 rotation = -0.22340214
 scale = Vector2(-1.3269428, -8.502392)
-color = Color(0.6605725, 0.5528212, 0.19965246, 1)
+color = Color(0.3291831, 0.6153547, 0.643601, 1)
 
-[node name="Label" type="Label" parent="macro_ex" unique_id=1741317507]
+[node name="Label" type="Label" parent="oxygen_ex" unique_id=1741317507]
 offset_left = 60.000008
 offset_top = -253.00003
 offset_right = 1247.0
@@ -522,4 +494,15 @@ rotation = -0.22340214
 scale = Vector2(0.108430274, 0.108430274)
 theme_override_fonts/font = ExtResource("8_vju6o")
 theme_override_font_sizes/font_size = 309
-text = "Macrophage"
+text = "Oxygen"
+
+[node name="oxygens" type="Node2D" parent="." unique_id=2036379242]
+
+[node name="temp" type="Node2D" parent="." unique_id=1831747985]
+
+[node name="atom" parent="temp" unique_id=1026721344 instance=ExtResource("7_kbcmb")]
+position = Vector2(205, -130)
+scale = Vector2(1.5907019, 1.5907019)
+script = ExtResource("8_pfh4p")
+
+[connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]

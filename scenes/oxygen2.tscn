@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://blro6h3ya3rp0"]
+
+[ext_resource type="Texture2D" uid="uid://c0bi0ebus6xly" path="res://assets/oxygen2.png" id="1_41b3g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+
+[node name="atom" type="CharacterBody2D" unique_id=1026721344]
+scale = Vector2(2.2241483, 2.2241483)
+collision_layer = 0
+collision_mask = 0
+
+[node name="oxygen2" type="Sprite2D" parent="." unique_id=1836638398]
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("1_41b3g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105965565]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_lbhrr")
