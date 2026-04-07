@@ -827,6 +827,20 @@ offset_bottom = -58.000008
 scale = Vector2(0.40022105, 0.40022105)
 text = "okay!"
 
+[node name="gui" type="CanvasLayer" parent="." unique_id=2100290722]
+
+[node name="Label" type="Label" parent="gui" unique_id=1742829093]
+offset_top = 660.00006
+offset_right = 4907.948
+offset_bottom = 894.00006
+scale = Vector2(0.26080146, 0.26080146)
+theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
+theme_override_fonts/font = ExtResource("5_6gc02")
+theme_override_font_sizes/font_size = 95
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="Control/Control/option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="Control/Control/option2" to="." method="_on_option_2_pressed"]
 [connection signal="pressed" from="messenger" to="." method="_on_chatgpt_pressed"]

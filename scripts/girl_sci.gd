@@ -22,6 +22,7 @@ func sp(msg, co):
 	if co == 1:  chat.add_theme_color_override("font_color", Color("39a8c4"))
 	elif co == 2: chat.add_theme_color_override("font_color", Color("ff3da6"))
 	elif co == 3: chat.add_theme_color_override("font_color", Color("cbb95a"))
+	am.ps("chat")
 
 	
 

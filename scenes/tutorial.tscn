@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cwpkee8rtqm2o" path="res://scenes/rbc.tscn" id="6_6yjpi"]
 [ext_resource type="PackedScene" uid="uid://cx2icvk53xmdy" path="res://scenes/macrophage.tscn" id="7_gbqnl"]
 [ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="8_ckvwl"]
+[ext_resource type="PackedScene" uid="uid://bnyqysh48nwb0" path="res://scenes/mobile.tscn" id="9_nlqja"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kmhl"]
 bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
@@ -116,10 +117,6 @@ position = Vector2(18.535912, 0.18424878)
 scale = Vector2(0.01826198, 0.030707505)
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 one_way_collision = true
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="map" unique_id=882257110]
-position = Vector2(-1015, -638)
-scale = Vector2(54.75857, 32.565327)
 
 [node name="gate1" type="Node2D" parent="map" unique_id=1046934903]
 
@@ -537,6 +534,10 @@ text = "DO YOU HEAR ME?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="mobile" parent="gui" unique_id=1853172840 instance=ExtResource("9_nlqja")]
+visible = false
+script = null
 
 [node name="rbcs" type="Node2D" parent="." unique_id=394209629]
 position = Vector2(243.00003, 53)

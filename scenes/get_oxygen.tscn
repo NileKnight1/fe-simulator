@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_ic61s"]
 [ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_i1g06"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_tcll3"]
+[ext_resource type="PackedScene" uid="uid://bnyqysh48nwb0" path="res://scenes/mobile.tscn" id="6_xyd8a"]
 [ext_resource type="PackedScene" uid="uid://blro6h3ya3rp0" path="res://scenes/oxygen2.tscn" id="7_kbcmb"]
 [ext_resource type="Script" uid="uid://x5okw2kascyc" path="res://scripts/static.gd" id="8_pfh4p"]
 [ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="8_vju6o"]
@@ -482,6 +483,10 @@ text = "DO YOU HEAR ME?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="mobile" parent="gui" unique_id=1853172840 instance=ExtResource("6_xyd8a")]
+visible = false
+script = null
 
 [node name="oxygen_ex" type="Node2D" parent="." unique_id=2129430983]
 visible = false

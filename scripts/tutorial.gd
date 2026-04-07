@@ -11,10 +11,13 @@ var not_now = 0
 
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
 	global.game_script = self
 	player.no_move = 1
 	if global.scene1_chat: 
 		cur = 16
+		sp("", 1)
 		player.no_move = 0
 	#moveRBCs()
 	#print(player.global_position)
@@ -40,6 +43,7 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
+	am.ps("chat")
 	
 
 func scene_choose():
@@ -92,6 +96,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_run3_body_entered(body: Node2D) -> void:
 	if !macro_run: return 
 	if body == player:
+		am.ps("close")
+		
 		$map/gate3.visible = 1
 		$map/gate3/StaticBody2D7/CollisionShape2D.set_deferred("disabled", 0) 
 		$map/gate3/StaticBody2D7/CollisionShape2D2.set_deferred("disabled", 0)
@@ -105,6 +111,7 @@ func moveRBCs():
 	
 	await get_tree().create_timer(1).timeout
 	sp("Run.", 0)
+	am.ps("sudden")
 	await get_tree().create_timer(1.5).timeout
 	sp("What's going on?", 1)
 
@@ -113,7 +120,9 @@ func moveMacro():
 	$map/macrorun.queue_free()
 	var tween = get_tree().create_tween()
 	tween.tween_property($macro, "position:x", 2800, 7.5).set_trans(Tween.TRANS_SINE)
+	am.ps("macro")
 	await get_tree().create_timer(1).timeout
+	
 	sp("WOAH.",1)
 	
 
@@ -143,6 +152,7 @@ func scene2():
 			$macro_ex.visible = 1
 			#$player/Camera2D.enabled = 0
 			#$macro_ex/Camera2D.enabled = 1
+			am.ps("sparkle")
 			cam_switch($player/Camera2D, $player/macro)
 			not_now =1
 			await get_tree().create_timer(1).timeout
@@ -170,6 +180,8 @@ func scene2():
 		18:
 			cam_switch($player/Camera2D, $player/rbc)
 			$rbc_ex.visible = 1
+			am.ps("sparkle")
+			
 			not_now =1
 			await get_tree().create_timer(1).timeout
 			sp("Red Blood Cells", 3)

@@ -14,7 +14,10 @@ var max_oxygen = 15
 var first_ox = 1
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
 	refresh_oxygen(0)
+	am.pm("fluid")
 	global.game_script = self
 	scene()
 	
@@ -38,6 +41,7 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
+	am.ps("chat")
 	
 
 func scene_choose():
@@ -66,7 +70,7 @@ func scene():
 			sp("You'll see yourself.", 2)
 			sceneAuto(1.5)
 		7: sp("", 1)
-		8: 
+		8: 	
 			sp("WOW .. I'm an RBC now.", 1)
 			sceneAuto(1.5)
 		9: 
@@ -86,6 +90,8 @@ func sceneAuto(t):
 	
 
 func _on_checkpoint_entered(body: Node2D) -> void:
+	
+	if player.get_child(0).texture != load("res://assets/rbc.png"): return
 	if body == player: get_tree().change_scene_to_file("res://scenes/end.tscn")
 
 
@@ -116,6 +122,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 		cam_switch($player/Camera2D, $player/oxygen)
 		$oxygen_ex.visible = 1
+		am.ps("whoosh")
 		await get_tree().create_timer(3).timeout
 		$oxygen_ex.visible = 0
 		cam_switch($player/Camera2D, $player/temp)
@@ -129,6 +136,7 @@ func picked(atom):
 			hemo()
 
 func hemo():
+	am.ps("sparkle")
 	player.get_child(0).texture = load("res://assets/rbc.png")
 	player.scale = Vector2(4.31, 4.31)
 	scene()

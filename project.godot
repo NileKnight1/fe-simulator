@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Fe Simulator"
-run/main_scene="uid://c7gxq1djc28c0"
+run/main_scene="uid://0erwwurq4iv8"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 global="*uid://4lja5vg4k3y2"
+am="*uid://7mpk2a4eyh5g"
 
 [display]
 
@@ -67,6 +68,10 @@ action={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -77,4 +82,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 textures/stretch/mode="disabled"

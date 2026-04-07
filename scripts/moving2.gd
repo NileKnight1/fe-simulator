@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player
-var speed = 400
+var speed = 300
 
 func _ready() -> void:
 	player = $"../../player"

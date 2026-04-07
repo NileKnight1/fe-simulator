@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkpqx87l1c6gh"
+path="res://.godot/imported/shield off.mp3-0f38d3d2a3252a09885db766cd7ecaa4.mp3str"
+
+[deps]
+
+source_file="res://audio/shield off.mp3"
+dest_files=["res://.godot/imported/shield off.mp3-0f38d3d2a3252a09885db766cd7ecaa4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

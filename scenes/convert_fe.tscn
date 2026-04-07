@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_674s6"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_71pvs"]
 [ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="6_71pvs"]
+[ext_resource type="PackedScene" uid="uid://bnyqysh48nwb0" path="res://scenes/mobile.tscn" id="6_twu3x"]
 [ext_resource type="PackedScene" uid="uid://blro6h3ya3rp0" path="res://scenes/oxygen2.tscn" id="7_f2c5k"]
 [ext_resource type="Script" uid="uid://x5okw2kascyc" path="res://scripts/static.gd" id="8_o45g7"]
 [ext_resource type="Texture2D" uid="uid://s8jj3ajaswh0" path="res://assets/human-liver-organ-anatomy-illustration-isolated-on-transparent-background-medical-educational-diagram-of-digestive-system-internal-body-structure-png.webp" id="9_71pvs"]
@@ -631,6 +632,10 @@ theme_override_font_sizes/font_size = 95
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="mobile" parent="gui" unique_id=1853172840 instance=ExtResource("6_twu3x")]
+visible = false
+script = null
 
 [node name="oxygen_ex" type="Node2D" parent="." unique_id=2129430983]
 visible = false

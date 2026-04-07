@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var chat = $Control/Label
+@onready var chat = $gui/Label
 @onready var option1 = $Control/Control/option1
 @onready var option2 = $Control/Control/option2
 @onready var sci = $AnimatableBody2D2/AnimatedSprite2D
@@ -22,7 +22,10 @@ func _process(delta: float) -> void:
 func sp(msg, co):
 	chat.text = msg
 	if co == 1:  chat.add_theme_color_override("font_color", Color("39a8c4"))
-	else: chat.add_theme_color_override("font_color", Color("cbb95a"))
+	else: 
+		chat.add_theme_color_override("font_color", Color("cbb95a"))
+		am.ps("chat")
+	
 	#option1.text = op1
 	#option2.text = op2
 
@@ -82,6 +85,8 @@ func scene(op):
 			sp("Good luck!", 2)
 			
 		11:
+			am.ps("gun")
+			am.pm("fluid")
 			get_tree().change_scene_to_file("res://scenes/good luck.tscn")
 
 
@@ -92,12 +97,14 @@ func _on_option_1_pressed() -> void:
 	sp(option1.text, 1)
 	hide_op()
 	not_now = 0
+	am.ps("click")
 	
 func _on_option_2_pressed() -> void: 
 	scene(2)
 	sp(option2.text, 1)
 	hide_op()
 	not_now = 0
+	am.ps("click")
 	
 	
 

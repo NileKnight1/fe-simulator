@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_hgwyw"]
 [ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_igmao"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_utmkc"]
+[ext_resource type="PackedScene" uid="uid://bnyqysh48nwb0" path="res://scenes/mobile.tscn" id="6_6uioe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1av1a"]
 bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
@@ -307,6 +308,10 @@ theme_override_font_sizes/font_size = 95
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="mobile" parent="gui" unique_id=1853172840 instance=ExtResource("6_6uioe")]
+visible = false
+script = null
 
 [node name="oxygens" type="Node2D" parent="." unique_id=2036379242]
 

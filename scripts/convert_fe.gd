@@ -14,6 +14,8 @@ var max_oxygen = 15
 var first_ox = 1
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
 	refresh_oxygen(0)
 	global.game_script = self
 	scene()
@@ -38,6 +40,8 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
+	am.ps("chat")
+
 	
 
 func scene_choose():
@@ -122,6 +126,7 @@ func _on_liver_entered(body: Node2D) -> void:
 	if body == player:
 		
 		sp("Wow .. so big organ.", 1)
+		am.ps("sparkle")
 		await get_tree().create_timer(1.5).timeout
 		sp("I guess it's the liver.", 2)
 		await get_tree().create_timer(2.5).timeout
@@ -129,6 +134,7 @@ func _on_liver_entered(body: Node2D) -> void:
 
 func _on_kidneys_entered(body: Node2D) -> void:
 	if body == player:
+		am.ps("sparkle")
 		sp("Are these kidneys?", 1)
 		await get_tree().create_timer(2.5).timeout
 		sp("", 1)
@@ -136,6 +142,7 @@ func _on_kidneys_entered(body: Node2D) -> void:
 func _on_spleen_entered(body: Node2D) -> void:
 	if body == player:
 		sp("What's this?", 1)
+		am.ps("sparkle")
 		player.no_move = 1
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://scenes/spleen.tscn")

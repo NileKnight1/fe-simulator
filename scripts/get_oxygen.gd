@@ -14,7 +14,9 @@ var max_oxygen = 15
 var first_ox = 1
 
 func _ready() -> void:
-	refresh_oxygen(0)
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
+	#refresh_oxygen(0)
 	global.game_script = self
 	scene()
 	
@@ -38,7 +40,8 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
-	
+	am.ps("chat")
+
 
 func scene_choose():
 	if !safe: scene()
@@ -92,6 +95,7 @@ func cam_switch(cam1, cam2):
 
 func refresh_oxygen(pnt):
 	oxygen_amount += pnt
+	am.ps("collect")
 	if oxygen_amount > max_oxygen:
 		oxygen_amount = max_oxygen
 	#print((float(oxygen_amount)/float(max_oxygen))*6)
@@ -104,13 +108,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
 		ox1 = 1
 		player.position = Vector2(-2, -137)
-
+		am.ps("find")
 		player.no_move = 1
 		sp("I found one.", 1)
 		await get_tree().create_timer(1).timeout
 		sp("GREAT!", 2)
 		await get_tree().create_timer(1).timeout
 		sp("Oxygen", 2)
+		am.ps("sparkle")
+		
 		cam_switch($player/Camera2D, $player/oxygen)
 		$oxygen_ex.visible = 1
 		not_now = 0

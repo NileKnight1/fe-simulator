@@ -17,6 +17,8 @@ var max_oxygen = 15
 
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
 	refresh_oxygen(1)
 	global.game_script = self
 	Oxtimer.start()
@@ -79,6 +81,7 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
+	am.ps("chat")
 	
 
 func scene_choose():
@@ -89,6 +92,8 @@ func scene():
 	cur += 1
 	match cur: 
 		1: 
+			am.ps("sparkle")
+			
 			sp("I'm full oxygenated doc.", 1)
 			sceneAuto(1.5)
 		2:
@@ -152,6 +157,7 @@ func picked(atom):
 			oxygen2()
 
 func oxygen2():
+	am.ps("collect")
 	refresh_oxygen(1)
 
 func spawn_ox2():
@@ -182,3 +188,5 @@ func end():
 	
 	for i in $oxygens.get_children():
 		i.queue_free()
+	
+	scene()

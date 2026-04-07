@@ -22,9 +22,11 @@ var done = 0
 
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
 	refresh_oxygen(1)
 	global.game_script = self
-	Oxtimer.start()
+	#Oxtimer.start()
 	#$player/Camera2D.shake_strength = 25
 	
 	#spawn_macro()
@@ -76,8 +78,10 @@ func _physics_process(delta: float) -> void:
 		for i in range(100):
 			spawn_macro()
 			
-	if t % 90 == 0:
+	if t % 100 == 0:
 		sp("MACROPHAGES", 1)
+		am.ps("sudden")
+		am.pm("countdown")
 		await get_tree().create_timer(2).timeout
 		sp('', 1)
 		
@@ -97,6 +101,7 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
+	am.ps("chat")
 	
 
 func scene_choose():
@@ -114,10 +119,14 @@ func scene():
 			sceneAuto(1.5)
 		3:
 			sp("", 1)
+			Oxtimer.start()
+			
 		4:
+			am.ps("macro")
 			sp("What was this sound?", 2)
 			sceneAuto(1.5)
 		5:
+			am.music_player.stop()
 			sp("They got me .. The macrophages.", 1)
 			sceneAuto(1.5)
 		6:
@@ -140,6 +149,7 @@ func scene():
 			sceneAuto(4)
 		10: 
 			sp("", 1)
+			am.ps("vomiting")
 			get_tree().change_scene_to_file("res://scenes/vomitted.tscn")
 			
 

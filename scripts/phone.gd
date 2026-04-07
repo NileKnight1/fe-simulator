@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var chat = $Control/Label
+@onready var chat = $gui/Label
 @onready var option1 = $Control/Control/option1
 @onready var option2 = $Control/Control/option2
 @onready var objects = $objects
@@ -28,13 +28,18 @@ func scene():
 	objects.get_child(cur).visible = 1
 	
 	
+	
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("action"):
 		if not_now: return
 		print(cur)
-		if cur < 8: 
+		if cur < 7: 
 			scene()
+			am.ps("message")
+		elif cur == 7:
+			scene()
+			am.ps("error")
 		elif cur == 8:
 			sp("Bruh.", 1)
 			cur += 1
@@ -47,4 +52,5 @@ func _on_chatgpt_pressed() -> void:
 	$chatgpt.visible = 0
 	objects.get_child(0).visible = 1
 	not_now = 0
+	am.ps("chat")
 	

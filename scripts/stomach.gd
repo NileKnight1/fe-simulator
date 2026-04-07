@@ -37,9 +37,11 @@ var chromium_alloy = 0
 
 
 func _ready() -> void:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
 	global.game_script = self
-	#player.no_move = 1
-	oxygen_timer.start()
+	player.no_move = 1
+	#oxygen_timer.start()
 	
 	
 	sp("What happened?", 1)
@@ -65,7 +67,9 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	player.no_move = 0
 	sp("", 1)
-	#oxygen_timer.start()
+	oxygen_timer.start()
+	am.pm("countdown")
+	
 	
 	
 	
@@ -156,13 +160,17 @@ func sp(msg, co):
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
+	am.ps("chat")
+	
 	
 
 func start_game():
 	oxygen_timer.start()
+	
 	#print(oxygen_timer.time_left)
 
 func end():
+	am.music_player.stop()
 	remove_children(oxygens)
 	remove_children(carbons)
 	remove_children(chromiums)
@@ -171,6 +179,7 @@ func end():
 	
 	$player/Camera2D.shake_strength = 25
 	$player/Camera2D.shake_decay = 1
+	am.ps("sparkle")
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/convert_rbc.tscn")
 	
@@ -190,6 +199,7 @@ func death():
 	get_tree().change_scene_to_file("res://scenes/stomach.tscn")
 	
 func refresh_health(pnt):
+		
 	player.health += pnt
 	if player.health > global.max_health:
 		player.health = global.max_health
@@ -275,6 +285,7 @@ func oxygen():
 	else:
 		if chromium_alloy: return
 		
+		am.ps("rust")
 		global.player_speed = 150
 		global.player_boost = 1.25
 		refresh_health(-10)
@@ -290,7 +301,7 @@ func oxygen():
 		
 func carbon():
 	refresh_health(15)
-	
+	am.ps("heal")
 	
 func hemo():
 	toHemo = 1
@@ -302,7 +313,11 @@ func chromium():
 	chromium_alloy = 1
 	global.player_speed = 300
 	global.player_boost = 1.25
+	am.ps("shield")
+	
 	await get_tree().create_timer(10.0).timeout
+	am.ps("shield_off")
+	
 	player.get_child(0).texture = load("res://assets/ir1.png")
 	
 	chromium_alloy = 0
@@ -313,6 +328,11 @@ func macrophage():
 
 func hcl():
 	refresh_health(-30)
+	am.ps("rust")
+	if player.health <= 0:
+		death()
+		return
+	
 	
 
 func water():
@@ -320,10 +340,13 @@ func water():
 		pass
 	else:
 		if chromium_alloy: return
-		
+		am.ps("rust")
 		global.player_speed = 150
 		global.player_boost = 1.25
 		refresh_health(-20)
+		if player.health <= 0:
+			death()
+			return
 		player.get_child(0).texture = load("res://assets/ir2.png")
 		await get_tree().create_timer(10.0).timeout
 		global.player_speed = 300

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bnyqysh48nwb0"]
+
+[ext_resource type="Script" uid="uid://d13srdjoohm2d" path="res://scripts/mobile.gd" id="1_ui7j4"]
+[ext_resource type="Texture2D" uid="uid://db5y8eg6dfxwq" path="res://assets/ui/ProgressBlack.png" id="2_xux57"]
+[ext_resource type="Texture2D" uid="uid://rdrdi0sn3iuy" path="res://assets/ui/ProgressWhite.png" id="3_p64qd"]
+
+[node name="mobile" type="CanvasLayer" unique_id=1853172840]
+script = ExtResource("1_ui7j4")
+
+[node name="Control" type="Control" parent="." unique_id=2000212517]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(32.00545, 18.029236)
+mouse_filter = 2
+
+[node name="sprint" type="TouchScreenButton" parent="Control" unique_id=2134153559]
+position = Vector2(32.24451, 27.233545)
+scale = Vector2(0.3050595, 0.21426336)
+texture_normal = ExtResource("2_xux57")
+texture_pressed = ExtResource("3_p64qd")
+passby_press = true
+action = "sprint"
+visibility_mode = 1
+
+[node name="left" type="TouchScreenButton" parent="Control" unique_id=894088602]
+position = Vector2(1.8121929, 30.00682)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("2_xux57")
+texture_pressed = ExtResource("3_p64qd")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="Control" unique_id=1534341483]
+position = Vector2(6.4988937, 30.00682)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("2_xux57")
+texture_pressed = ExtResource("3_p64qd")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="Control" unique_id=1847674981]
+position = Vector2(4.1555405, 33.112885)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("2_xux57")
+texture_pressed = ExtResource("3_p64qd")
+passby_press = true
+action = "down"
+visibility_mode = 1
+
+[node name="up" type="TouchScreenButton" parent="Control" unique_id=293848825]
+position = Vector2(4.1555443, 26.678894)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("2_xux57")
+texture_pressed = ExtResource("3_p64qd")
+passby_press = true
+action = "up"
+visibility_mode = 1

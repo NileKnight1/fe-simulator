@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d36q57vish6b8" path="res://assets/ir1.png" id="4_u1dc4"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_t4vo7"]
 [ext_resource type="FontFile" uid="uid://cp6a6hu4gqa5v" path="res://assets/RougeScript-Regular.ttf" id="6_6u00p"]
+[ext_resource type="PackedScene" uid="uid://bnyqysh48nwb0" path="res://scenes/mobile.tscn" id="6_axgoj"]
 [ext_resource type="PackedScene" uid="uid://bk3rc8vo3ah4w" path="res://scenes/hemo.tscn" id="7_of3cn"]
 [ext_resource type="Script" uid="uid://x5okw2kascyc" path="res://scripts/static.gd" id="8_dtx54"]
 
@@ -25,8 +26,8 @@ corner_radius_bottom_right = 400
 corner_radius_bottom_left = 400
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6yjpi"]
-a = Vector2(231, -102)
-b = Vector2(233, 89)
+a = Vector2(233, -132)
+b = Vector2(235, 131)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cq4me"]
 a = Vector2(167, 31)
@@ -114,7 +115,7 @@ shape = SubResource("WorldBoundaryShape2D_lbhrr")
 one_way_collision = true
 
 [node name="gate1" type="Node2D" parent="map" unique_id=1046934903]
-position = Vector2(-48, -268)
+position = Vector2(2019, -35)
 
 [node name="Panel3" type="Panel" parent="map/gate1" unique_id=847398334]
 offset_left = 352.00003
@@ -137,7 +138,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cq4me")
 [node name="StaticBody2D7" type="StaticBody2D" parent="map/gate1" unique_id=1919381377]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/gate1/StaticBody2D7" unique_id=1988293917]
-position = Vector2(165, -134)
+position = Vector2(-60, -98)
 shape = SubResource("SegmentShape2D_6yjpi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/gate1/StaticBody2D7" unique_id=2085550391]
@@ -374,7 +375,7 @@ position = Vector2(1508.0001, 97)
 scale = Vector2(1.3200003, 1.3200003)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(304, -138)
+position = Vector2(-2723, -138)
 scale = Vector2(1.8, 1.8)
 script = ExtResource("3_7vhw0")
 
@@ -483,6 +484,10 @@ text = "DO YOU HEAR ME?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="mobile" parent="gui" unique_id=1853172840 instance=ExtResource("6_axgoj")]
+visible = false
+script = null
 
 [node name="oxygen_ex" type="Node2D" parent="." unique_id=2129430983]
 visible = false
