@@ -39,7 +39,7 @@ a = Vector2(-227.09082, 74.77252)
 b = Vector2(2129.6843, 76.82043)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wvhdn"]
-a = Vector2(1510.5007, -1197.8702)
+a = Vector2(1560.3545, -1248.6985)
 b = Vector2(85.65649, 228.97156)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rpuev"]
@@ -51,12 +51,23 @@ a = Vector2(1.3364105, -0.7068863)
 b = Vector2(-10.5820465, 5.9499207)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p57ya"]
-a = Vector2(2732.9597, 812.0106)
+a = Vector2(2982.1687, 878.78595)
 b = Vector2(-142.8605, 42.472214)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_076au"]
-a = Vector2(2765.0933, 819.58563)
+a = Vector2(2970.6465, 871.5575)
 b = Vector2(-142.8605, 42.472214)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ep1r7"]
+a = Vector2(67.04883, -60.355896)
+b = Vector2(141.25067, -14.716766)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yc4bi"]
+a = Vector2(211.81573, 15.923004)
+b = Vector2(97.24533, 46.062103)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gxkuk"]
+a = Vector2(-67.69556, 318.32593)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 
@@ -284,6 +295,28 @@ position = Vector2(-92.96913, -39.404892)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("SegmentShape2D_076au")
 
+[node name="Area2D" type="Area2D" parent="map" unique_id=1295649682]
+position = Vector2(-89.287605, 275.2703)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D" unique_id=1738012965]
+position = Vector2(1063.5114, -1836.3138)
+scale = Vector2(1.8197018, 4.5355906)
+shape = SubResource("SegmentShape2D_ep1r7")
+
+[node name="Area2D2" type="Area2D" parent="map" unique_id=379581050]
+position = Vector2(-394.9513, 3405.83)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D2" unique_id=1297936974]
+position = Vector2(1091.849, -2208.6675)
+scale = Vector2(1.8197018, 4.5355906)
+shape = SubResource("SegmentShape2D_yc4bi")
+
+[node name="Area2D3" type="Area2D" parent="map" unique_id=1285760199]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D3" unique_id=1717336303]
+position = Vector2(2748.1619, 542.7711)
+shape = SubResource("SegmentShape2D_gxkuk")
+
 [node name="idles" type="Node2D" parent="." unique_id=2048563094]
 
 [node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_uafaq")]
@@ -491,7 +524,7 @@ position = Vector2(2428.0002, 6.9999924)
 scale = Vector2(1.3200003, 1.3200003)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(1139, 955)
+position = Vector2(-2699, 586)
 scale = Vector2(4.3101068, 4.3101068)
 script = ExtResource("3_lgefe")
 
@@ -562,7 +595,6 @@ shape = SubResource("CircleShape2D_iywne")
 [node name="gui" type="CanvasLayer" parent="." unique_id=1002078055]
 
 [node name="Control" type="Control" parent="gui" unique_id=1700327509]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 6.0
@@ -634,9 +666,9 @@ scale = Vector2(1.5907019, 1.5907019)
 script = ExtResource("8_o45g7")
 
 [node name="HumanLiverOrganAnatomyIllustrationIsolatedOnTransparentBackgroundMedicalEducationalDiagramOfDigestiveSystemInternalBodyStructurePng" type="Sprite2D" parent="." unique_id=1451359814]
-position = Vector2(926.99994, -2188)
+position = Vector2(982.99994, -2247)
 rotation = -0.5235988
-scale = Vector2(2.3431375, 2.3431375)
+scale = Vector2(2.8549597, 2.8549597)
 texture = ExtResource("9_71pvs")
 
 [node name="HumanKidneyAnatomyVitalRoleInFiltrationAndHomeostasisPng" type="Sprite2D" parent="." unique_id=1873823762]
@@ -650,3 +682,7 @@ position = Vector2(2875.9998, -56.000084)
 rotation = 0.2617994
 scale = Vector2(2.0561497, 2.0561497)
 texture = ExtResource("11_o45g7")
+
+[connection signal="body_entered" from="map/Area2D" to="." method="_on_liver_entered"]
+[connection signal="body_entered" from="map/Area2D2" to="." method="_on_kidneys_entered"]
+[connection signal="body_entered" from="map/Area2D3" to="." method="_on_spleen_entered"]

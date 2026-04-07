@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player
-var speed = 400
+var speed = 150
 
 func _ready() -> void:
 	player = $"../../player"
@@ -27,11 +27,11 @@ func _ready() -> void:
 	#
 	
 func _physics_process(delta: float) -> void:
-	var direction: Vector2 =  global_position - player.global_position
+	var direction: Vector2 = player.global_position - global_position
 	
 	var distance: float = direction.length()
 
-	if distance > 200: return
+	if distance > 400: return
 	
 	if distance > 45:
 		direction = direction.normalized()

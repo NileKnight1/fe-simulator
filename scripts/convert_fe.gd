@@ -9,7 +9,7 @@ var safe = 0
 var cur = 0
 var not_now = 1
 var ox1 = 0
-var oxygen_amount = 0
+var oxygen_amount = 15
 var max_oxygen = 15
 var first_ox = 1
 
@@ -48,29 +48,28 @@ func scene():
 	cur += 1
 	match cur: 
 		1: 
-			sp("Yo doc .. you still here.", 1)
+			sp("Now where to?", 1)
 			sceneAuto(1.5)
 		2:
-			sp("I was eating.", 2)
-			sceneAuto(1)
+			sp("Ummmm.", 2)
+			sceneAuto(1.5)
 		3:
-			sp("I WOULD HAVE JUST BEEN EATEN.", 1)
+			sp("What do yo you mean by UMMMM?", 1)
 			sceneAuto(1.5)
 		4: 
-			sp("Haha .. search for oxygen and I'll tell you what to do.", 2)
-			sceneAuto(3)
-		5: sp("", 1)
+			sp("You have to find a way out of yourself.", 2)
+			sceneAuto(1.5)
+		5:
+			sp("Can you help?", 1)
+			sceneAuto(1.5)
 		6:
-			sp("You as an RBC carry oxygen, the most important fuel every cell depends on to survive and produce energy.", 2)
+			sp("I don't think so.", 2)
+			sceneAuto(1.5)
 		7:
-			sp("Carry as many as you can to move to the next step.", 2)
-		8:
+			sp("I hate you.", 1)
+			sceneAuto(1.5)
 			
-			$oxygen_ex.visible = 0
-			cam_switch($player/Camera2D, $player/temp)
-			await get_tree().create_timer(0.4).timeout
-			not_now = 1
-			player.no_move = 0
+		8: sp("", 1)
 			
 
 func sceneAuto(t):
@@ -117,23 +116,28 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		scene()
 
 
-func picked(atom):
-	match atom:
-		"oxygen2":
-			oxygen2()
 
-func oxygen2():
-	refresh_oxygen(1)
-	if first_ox:
-		first_ox = 0
+
+func _on_liver_entered(body: Node2D) -> void:
+	if body == player:
+		
+		sp("Wow .. so big organ.", 1)
+		await get_tree().create_timer(1.5).timeout
+		sp("I guess it's the liver.", 2)
+		await get_tree().create_timer(2.5).timeout
 		sp("", 1)
-		var h = $gui/Control
-		h.visible = 1
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 0
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 1
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 0
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 1
+
+func _on_kidneys_entered(body: Node2D) -> void:
+	if body == player:
+		sp("Are these kidneys?", 1)
+		await get_tree().create_timer(2.5).timeout
+		sp("", 1)
+
+func _on_spleen_entered(body: Node2D) -> void:
+	if body == player:
+		sp("What's this?", 1)
+		player.no_move = 1
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_file("res://scenes/spleen.tscn")
+		
+		

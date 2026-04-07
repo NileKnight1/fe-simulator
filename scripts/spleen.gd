@@ -1,7 +1,10 @@
 extends Node2D
 
-@onready var scriptX = preload("res://scripts/moving2.gd")
-@onready var oxygen2S = preload("res://scenes/oxygen2.tscn")
+@onready var scriptX = preload("res://scripts/moving3.gd")
+@onready var moving_away = preload("res://scripts/moving_macro_away.gd")
+
+@onready var macroS = preload("res://scenes/macrophage.tscn")
+
 
 @onready var player = $player
 @onready var health_bar = $gui/Control/Panel3
@@ -12,8 +15,10 @@ var safe = 0
 var cur = 0
 var not_now = 1
 var ox1 = 0
-var oxygen_amount = 0
+var oxygen_amount = 15
 var max_oxygen = 15
+var max_macro = 1
+var done = 0
 
 
 func _ready() -> void:
@@ -21,20 +26,20 @@ func _ready() -> void:
 	global.game_script = self
 	Oxtimer.start()
 	
-	#spawn_ox2()
+	#spawn_macro()
 	##scene()
-	#var object = oxygen2S.instantiate()
+	#var object = macroS.instantiate()
 	#object.set_script(scriptX)
 	#$oxygens.add_child(object)
 	#object.position = Vector2(50, 50)
 	##
-	#spawn_ox2()
-	#spawn_ox2()
-	#spawn_ox2()
-	#spawn_ox2()
-	#spawn_ox2()
-	#spawn_ox2()
-	#spawn_ox2()
+	#spawn_macro()
+	#spawn_macro()
+	#spawn_macro()
+	#spawn_macro()
+	#spawn_macro()
+	#spawn_macro()
+	#spawn_macro()
 	
 	
 var ttt = 0
@@ -42,13 +47,14 @@ var t
 
 func _physics_process(delta: float) -> void:
 	
+	if done: return
 	for i in $oxygens.get_children():
 		var pgp = player.global_position
 		var direction: Vector2 = pgp - i.global_position
 		var distance: float = direction.length()
-		if distance > 800 || i.position.x > 2430 || i.position.x < -1932.0 ||  i.position.y < -717 || i.position.y > 820:
+		if distance > 400 || i.position.x > 2430 || i.position.x < -1932.0 ||  i.position.y < -717 || i.position.y > 820:
 			i.queue_free()
-			spawn_ox2()
+			spawn_macro()
 		
 	t = int(Oxtimer.time_left)
 	if ttt == t: return
@@ -58,11 +64,16 @@ func _physics_process(delta: float) -> void:
 	#print(player.health)
 	
 
-	if t % 10 == 0 && $oxygens.get_child_count() <= 10:
-		spawn_ox2()
-		spawn_ox2()
-		spawn_ox2()
-
+	if t % 1 == 0 && $oxygens.get_child_count() <= min(max_macro, 80):
+		
+		for i in range(max_macro):
+			spawn_macro()
+			if $oxygens.get_child_count() > min(max_macro, 80): break
+		max_macro += $oxygens.get_child_count()
+		print($oxygens.get_child_count())
+	if t == 1:
+		for i in range(100):
+			spawn_macro()
 
 
 
@@ -110,7 +121,7 @@ func _on_checkpoint_entered(body: Node2D) -> void:
 
 func cam_switch(cam1, cam2):
 	cam1.zoom = cam2.zoom
-	cam1.position = cam2.position
+	cam1.position = cam2.positiond
 	cam1.rotation = cam2.rotation
 	cam1.scale = cam2.scale
 
@@ -148,21 +159,34 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func picked(atom):
 	match atom:
-		"oxygen2":
-			oxygen2()
+		"macrophage":
+			macrophage()
 
-func oxygen2():
-	refresh_oxygen(1)
+func macrophage():
+	done = 1
+	player.get_child(0).texture = load("res://assets/ir1.png")
+	player.scale = Vector2(1.7, 1.7)
+	await get_tree().create_timer(0.5).timeout
+	Oxtimer.stop()
+	for i in range($oxygens.get_child_count()):
+		#i.set_script(moving_awady)
+		$oxygens.get_child(i).queue_free()
+		spawn_macro2()
+		print(i)
 
-func spawn_ox2():
-	var new_object = oxygen2S.instantiate()
-	spawn(new_object)
+func spawn_macro():
+	var new_object = macroS.instantiate()
+	spawn(new_object, scriptX)
+
+func spawn_macro2():
+	var new_object = macroS.instantiate()
+	spawn(new_object, moving_away)
 
 
-func spawn(new_object):
+func spawn(new_object, script):
 	var pgp = player.global_position
 	
-	new_object.set_script(scriptX)
+	new_object.set_script(script)
 	#print(new_object)
 	$oxygens.add_child(new_object)
 	
