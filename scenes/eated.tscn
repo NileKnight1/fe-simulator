@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bqdwsyubwab1l"]
+[gd_scene format=3 uid="uid://mth4nd28able"]
 
-[ext_resource type="Script" uid="uid://b5cjdccdme07d" path="res://scripts/vomitted.gd" id="1_aeiux"]
-[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="2_3pyh6"]
+[ext_resource type="Script" uid="uid://bdgvpcqmh60if" path="res://scripts/eated.gd" id="1_xxcnh"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="2_lyvy3"]
 
 [node name="Node2D" type="Node2D" unique_id=1691131111]
-script = ExtResource("1_aeiux")
+script = ExtResource("1_xxcnh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1879235825]
 
@@ -33,7 +33,7 @@ offset_top = 143.99998
 offset_right = 4729.0
 offset_bottom = 894.0
 scale = Vector2(0.1, 0.1)
-theme_override_fonts/font = ExtResource("2_3pyh6")
+theme_override_fonts/font = ExtResource("2_lyvy3")
 theme_override_font_sizes/font_size = 550
 
 [node name="gui" type="CanvasLayer" parent="." unique_id=587513347]
@@ -44,7 +44,7 @@ offset_right = 4907.948
 offset_bottom = 894.00006
 scale = Vector2(0.26080146, 0.26080146)
 theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
-theme_override_fonts/font = ExtResource("2_3pyh6")
+theme_override_fonts/font = ExtResource("2_lyvy3")
 theme_override_font_sizes/font_size = 95
 horizontal_alignment = 1
 vertical_alignment = 1

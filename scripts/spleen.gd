@@ -140,6 +140,7 @@ func scene():
 			sceneAuto(4)
 		10: 
 			sp("", 1)
+			get_tree().change_scene_to_file("res://scenes/vomitted.tscn")
 			
 
 

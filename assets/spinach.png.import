@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://puct3ej5k4px"
-valid=false
+uid="uid://0vleuexl3g6x"
+path="res://.godot/imported/spinach.png-beb66c16bec916b9074fd08edafa6401.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/image sci.png"
+source_file="res://assets/spinach.png"
+dest_files=["res://.godot/imported/spinach.png-beb66c16bec916b9074fd08edafa6401.ctex"]
 
 [params]
 

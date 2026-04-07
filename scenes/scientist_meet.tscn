@@ -275,7 +275,7 @@ shape = SubResource("CircleShape2D_ycmb3")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D2" unique_id=624001703]
-position = Vector2(35.314953, 5.7747717)
+position = Vector2(32.20546, 5.7747717)
 scale = Vector2(0.18204974, 0.18204974)
 sprite_frames = SubResource("SpriteFrames_apkwe")
 autoplay = "default"

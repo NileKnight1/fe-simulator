@@ -1,29 +1,28 @@
-[gd_scene format=3 uid="uid://c4x1ngq1dtlul"]
+[gd_scene format=3 uid="uid://qbkllpr5osyl"]
 
-[ext_resource type="Script" uid="uid://804wo5hxbsop" path="res://scripts/stomach.gd" id="1_xx64r"]
-[ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_xx64r"]
-[ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_230c2"]
-[ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_rn4pr"]
-[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_x17hl"]
-[ext_resource type="Script" uid="uid://c2ln25hquu7w0" path="res://scripts/camera.gd" id="5_xx64r"]
+[ext_resource type="Script" uid="uid://804wo5hxbsop" path="res://scripts/stomach.gd" id="1_4j81h"]
+[ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_w5hkd"]
+[ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_4j81h"]
+[ext_resource type="Texture2D" uid="uid://d36q57vish6b8" path="res://assets/ir1.png" id="4_2s3ex"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="6_wbysv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1av1a"]
 bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_do5m3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5hkd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4j81h"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s3ex"]
 bg_color = Color(0.11119685, 0.11119684, 0.11119684, 0.98800004)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
-bg_color = Color(0.2344518, 0.5930889, 0.79942304, 0.9882353)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lgyv"]
+bg_color = Color(0.9819477, 0.22538659, 0.2508528, 0.98800004)
 
 [node name="game" type="Node2D" unique_id=1594935208]
-script = ExtResource("1_xx64r")
+script = ExtResource("1_4j81h")
 
 [node name="map" type="Node2D" parent="." unique_id=572353439]
 
@@ -102,317 +101,335 @@ shape = SubResource("WorldBoundaryShape2D_do5m3")
 
 [node name="idles" type="Node2D" parent="." unique_id=2048563094]
 
-[node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_xx64r")]
+[node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_w5hkd")]
 position = Vector2(-724, 976)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle2" parent="idles" unique_id=1056592274 instance=ExtResource("2_xx64r")]
+[node name="idle2" parent="idles" unique_id=1056592274 instance=ExtResource("2_w5hkd")]
 position = Vector2(571.0001, -173)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle3" parent="idles" unique_id=228954860 instance=ExtResource("2_xx64r")]
+[node name="idle3" parent="idles" unique_id=228954860 instance=ExtResource("2_w5hkd")]
 position = Vector2(-2037, 507.99994)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle4" parent="idles" unique_id=1181317442 instance=ExtResource("2_xx64r")]
+[node name="idle4" parent="idles" unique_id=1181317442 instance=ExtResource("2_w5hkd")]
 position = Vector2(59, 118)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle5" parent="idles" unique_id=1803484362 instance=ExtResource("2_xx64r")]
+[node name="idle5" parent="idles" unique_id=1803484362 instance=ExtResource("2_w5hkd")]
 position = Vector2(-147.99997, 218)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle21" parent="idles" unique_id=899578555 instance=ExtResource("2_xx64r")]
+[node name="idle21" parent="idles" unique_id=899578555 instance=ExtResource("2_w5hkd")]
 position = Vector2(-502.99997, -331)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle22" parent="idles" unique_id=22650639 instance=ExtResource("2_xx64r")]
+[node name="idle22" parent="idles" unique_id=22650639 instance=ExtResource("2_w5hkd")]
 position = Vector2(-3028, -552)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle23" parent="idles" unique_id=1143654934 instance=ExtResource("2_xx64r")]
+[node name="idle23" parent="idles" unique_id=1143654934 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1026, 390.99997)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle24" parent="idles" unique_id=1065706983 instance=ExtResource("2_xx64r")]
+[node name="idle24" parent="idles" unique_id=1065706983 instance=ExtResource("2_w5hkd")]
 position = Vector2(-802, -444)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle25" parent="idles" unique_id=654423080 instance=ExtResource("2_xx64r")]
+[node name="idle25" parent="idles" unique_id=654423080 instance=ExtResource("2_w5hkd")]
 position = Vector2(2003, -423.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle26" parent="idles" unique_id=2053245687 instance=ExtResource("2_xx64r")]
+[node name="idle26" parent="idles" unique_id=2053245687 instance=ExtResource("2_w5hkd")]
 position = Vector2(900, -890.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle27" parent="idles" unique_id=259983488 instance=ExtResource("2_xx64r")]
+[node name="idle27" parent="idles" unique_id=259983488 instance=ExtResource("2_w5hkd")]
 position = Vector2(961, 280)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle28" parent="idles" unique_id=718069864 instance=ExtResource("2_xx64r")]
+[node name="idle28" parent="idles" unique_id=718069864 instance=ExtResource("2_w5hkd")]
 position = Vector2(795, 551)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle29" parent="idles" unique_id=1877073777 instance=ExtResource("2_xx64r")]
+[node name="idle29" parent="idles" unique_id=1877073777 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1.999939, 551)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle30" parent="idles" unique_id=906392035 instance=ExtResource("2_xx64r")]
+[node name="idle30" parent="idles" unique_id=906392035 instance=ExtResource("2_w5hkd")]
 position = Vector2(1389, 504)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle31" parent="idles" unique_id=1465482533 instance=ExtResource("2_xx64r")]
+[node name="idle31" parent="idles" unique_id=1465482533 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1606, 551)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle32" parent="idles" unique_id=1116167231 instance=ExtResource("2_xx64r")]
+[node name="idle32" parent="idles" unique_id=1116167231 instance=ExtResource("2_w5hkd")]
 position = Vector2(1777.0002, 996.99994)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle33" parent="idles" unique_id=405005900 instance=ExtResource("2_xx64r")]
+[node name="idle33" parent="idles" unique_id=405005900 instance=ExtResource("2_w5hkd")]
 position = Vector2(1838, -180)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle34" parent="idles" unique_id=1526206313 instance=ExtResource("2_xx64r")]
+[node name="idle34" parent="idles" unique_id=1526206313 instance=ExtResource("2_w5hkd")]
 position = Vector2(-2772, -88)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle35" parent="idles" unique_id=299596211 instance=ExtResource("2_xx64r")]
+[node name="idle35" parent="idles" unique_id=299596211 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1606.0001, -155)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle36" parent="idles" unique_id=1973918584 instance=ExtResource("2_xx64r")]
+[node name="idle36" parent="idles" unique_id=1973918584 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1169.0001, -85)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle37" parent="idles" unique_id=157648876 instance=ExtResource("2_xx64r")]
+[node name="idle37" parent="idles" unique_id=157648876 instance=ExtResource("2_w5hkd")]
 position = Vector2(-2909, 660)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle38" parent="idles" unique_id=117311775 instance=ExtResource("2_xx64r")]
+[node name="idle38" parent="idles" unique_id=117311775 instance=ExtResource("2_w5hkd")]
 position = Vector2(-2037, -869.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle39" parent="idles" unique_id=561726803 instance=ExtResource("2_xx64r")]
+[node name="idle39" parent="idles" unique_id=561726803 instance=ExtResource("2_w5hkd")]
 position = Vector2(37, -696.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle40" parent="idles" unique_id=822339241 instance=ExtResource("2_xx64r")]
+[node name="idle40" parent="idles" unique_id=822339241 instance=ExtResource("2_w5hkd")]
 position = Vector2(571, -696.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle41" parent="idles" unique_id=1230110901 instance=ExtResource("2_xx64r")]
+[node name="idle41" parent="idles" unique_id=1230110901 instance=ExtResource("2_w5hkd")]
 position = Vector2(1389, -465.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle43" parent="idles" unique_id=744651124 instance=ExtResource("2_xx64r")]
+[node name="idle43" parent="idles" unique_id=744651124 instance=ExtResource("2_w5hkd")]
 position = Vector2(1022, -201.00003)
 rotation = -2.8797934
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle44" parent="idles" unique_id=1856867853 instance=ExtResource("2_xx64r")]
+[node name="idle44" parent="idles" unique_id=1856867853 instance=ExtResource("2_w5hkd")]
 position = Vector2(2639, -402)
 rotation = -2.8797934
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle45" parent="idles" unique_id=202264115 instance=ExtResource("2_xx64r")]
+[node name="idle45" parent="idles" unique_id=202264115 instance=ExtResource("2_w5hkd")]
 position = Vector2(2628, 482.99994)
 rotation = -2.8797934
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle46" parent="idles" unique_id=1795377569 instance=ExtResource("2_xx64r")]
+[node name="idle46" parent="idles" unique_id=1795377569 instance=ExtResource("2_w5hkd")]
 position = Vector2(-2170, -352)
 rotation = -2.8797934
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle42" parent="idles" unique_id=2028821318 instance=ExtResource("2_xx64r")]
+[node name="idle42" parent="idles" unique_id=2028821318 instance=ExtResource("2_w5hkd")]
 position = Vector2(2003.0001, 572)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle47" parent="idles" unique_id=465882003 instance=ExtResource("2_xx64r")]
+[node name="idle47" parent="idles" unique_id=465882003 instance=ExtResource("2_w5hkd")]
 position = Vector2(-801.9999, 639)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle48" parent="idles" unique_id=928843782 instance=ExtResource("2_xx64r")]
+[node name="idle48" parent="idles" unique_id=928843782 instance=ExtResource("2_w5hkd")]
 position = Vector2(-724.00006, 259)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle49" parent="idles" unique_id=1711462853 instance=ExtResource("2_xx64r")]
+[node name="idle49" parent="idles" unique_id=1711462853 instance=ExtResource("2_w5hkd")]
 position = Vector2(-802.00006, 0)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle50" parent="idles" unique_id=2070135100 instance=ExtResource("2_xx64r")]
+[node name="idle50" parent="idles" unique_id=2070135100 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1230, -423)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle51" parent="idles" unique_id=641618096 instance=ExtResource("2_xx64r")]
+[node name="idle51" parent="idles" unique_id=641618096 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1667.0001, -545)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle52" parent="idles" unique_id=1198897118 instance=ExtResource("2_xx64r")]
+[node name="idle52" parent="idles" unique_id=1198897118 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1291.0001, 681)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle53" parent="idles" unique_id=329614950 instance=ExtResource("2_xx64r")]
+[node name="idle53" parent="idles" unique_id=329614950 instance=ExtResource("2_w5hkd")]
 position = Vector2(-442, 579)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle54" parent="idles" unique_id=1789791324 instance=ExtResource("2_xx64r")]
+[node name="idle54" parent="idles" unique_id=1789791324 instance=ExtResource("2_w5hkd")]
 position = Vector2(-442, 118.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle55" parent="idles" unique_id=822145478 instance=ExtResource("2_xx64r")]
+[node name="idle55" parent="idles" unique_id=822145478 instance=ExtResource("2_w5hkd")]
 position = Vector2(-209, -201)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle56" parent="idles" unique_id=350509377 instance=ExtResource("2_xx64r")]
+[node name="idle56" parent="idles" unique_id=350509377 instance=ExtResource("2_w5hkd")]
 position = Vector2(-209.00002, -486)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle57" parent="idles" unique_id=30713587 instance=ExtResource("2_xx64r")]
+[node name="idle57" parent="idles" unique_id=30713587 instance=ExtResource("2_w5hkd")]
 position = Vector2(413, -402.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle58" parent="idles" unique_id=1480254851 instance=ExtResource("2_xx64r")]
+[node name="idle58" parent="idles" unique_id=1480254851 instance=ExtResource("2_w5hkd")]
 position = Vector2(-17, -110.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle59" parent="idles" unique_id=62959277 instance=ExtResource("2_xx64r")]
+[node name="idle59" parent="idles" unique_id=62959277 instance=ExtResource("2_w5hkd")]
 position = Vector2(213, 482.99997)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle60" parent="idles" unique_id=399522188 instance=ExtResource("2_xx64r")]
+[node name="idle60" parent="idles" unique_id=399522188 instance=ExtResource("2_w5hkd")]
 position = Vector2(474, 301)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle61" parent="idles" unique_id=1689237191 instance=ExtResource("2_xx64r")]
+[node name="idle61" parent="idles" unique_id=1689237191 instance=ExtResource("2_w5hkd")]
 position = Vector2(474.00003, 721)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle62" parent="idles" unique_id=1811061175 instance=ExtResource("2_xx64r")]
+[node name="idle62" parent="idles" unique_id=1811061175 instance=ExtResource("2_w5hkd")]
 position = Vector2(1450, 370.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle63" parent="idles" unique_id=1738351463 instance=ExtResource("2_xx64r")]
+[node name="idle63" parent="idles" unique_id=1738351463 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1499, -889.99994)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle64" parent="idles" unique_id=1402207392 instance=ExtResource("2_xx64r")]
+[node name="idle64" parent="idles" unique_id=1402207392 instance=ExtResource("2_w5hkd")]
 position = Vector2(-863, -974)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle65" parent="idles" unique_id=558542773 instance=ExtResource("2_xx64r")]
+[node name="idle65" parent="idles" unique_id=558542773 instance=ExtResource("2_w5hkd")]
 position = Vector2(-863.00006, -848.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle66" parent="idles" unique_id=396924515 instance=ExtResource("2_xx64r")]
+[node name="idle66" parent="idles" unique_id=396924515 instance=ExtResource("2_w5hkd")]
 position = Vector2(-148.00006, -841.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle67" parent="idles" unique_id=1505462775 instance=ExtResource("2_xx64r")]
+[node name="idle67" parent="idles" unique_id=1505462775 instance=ExtResource("2_w5hkd")]
 position = Vector2(274, -967.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle68" parent="idles" unique_id=52779639 instance=ExtResource("2_xx64r")]
+[node name="idle68" parent="idles" unique_id=52779639 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1886, 954.99994)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle69" parent="idles" unique_id=170743936 instance=ExtResource("2_xx64r")]
+[node name="idle69" parent="idles" unique_id=170743936 instance=ExtResource("2_w5hkd")]
 position = Vector2(-2224, 30.000061)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle70" parent="idles" unique_id=1701954572 instance=ExtResource("2_xx64r")]
+[node name="idle70" parent="idles" unique_id=1701954572 instance=ExtResource("2_w5hkd")]
 position = Vector2(-78, 934)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle71" parent="idles" unique_id=1441338560 instance=ExtResource("2_xx64r")]
+[node name="idle71" parent="idles" unique_id=1441338560 instance=ExtResource("2_w5hkd")]
 position = Vector2(1626, 728)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle72" parent="idles" unique_id=1685866609 instance=ExtResource("2_xx64r")]
+[node name="idle72" parent="idles" unique_id=1685866609 instance=ExtResource("2_w5hkd")]
 position = Vector2(1942.0001, 118.00006)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle73" parent="idles" unique_id=414884143 instance=ExtResource("2_xx64r")]
+[node name="idle73" parent="idles" unique_id=414884143 instance=ExtResource("2_w5hkd")]
 position = Vector2(2201, 377)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle74" parent="idles" unique_id=896704193 instance=ExtResource("2_xx64r")]
+[node name="idle74" parent="idles" unique_id=896704193 instance=ExtResource("2_w5hkd")]
 position = Vector2(2262, -310)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle75" parent="idles" unique_id=1058832383 instance=ExtResource("2_xx64r")]
+[node name="idle75" parent="idles" unique_id=1058832383 instance=ExtResource("2_w5hkd")]
 position = Vector2(1328.0002, -21.00003)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle76" parent="idles" unique_id=390778813 instance=ExtResource("2_xx64r")]
+[node name="idle76" parent="idles" unique_id=390778813 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1291, 30)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle77" parent="idles" unique_id=898859393 instance=ExtResource("2_xx64r")]
+[node name="idle77" parent="idles" unique_id=898859393 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1728.0001, 239)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle78" parent="idles" unique_id=54808267 instance=ExtResource("2_xx64r")]
+[node name="idle78" parent="idles" unique_id=54808267 instance=ExtResource("2_w5hkd")]
 position = Vector2(-1169.0001, 218.00002)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle79" parent="idles" unique_id=1678716454 instance=ExtResource("2_xx64r")]
+[node name="idle79" parent="idles" unique_id=1678716454 instance=ExtResource("2_w5hkd")]
 position = Vector2(-924.0001, -200.99998)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle80" parent="idles" unique_id=126648518 instance=ExtResource("2_xx64r")]
+[node name="idle80" parent="idles" unique_id=126648518 instance=ExtResource("2_w5hkd")]
 position = Vector2(838.9999, -444)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="idle81" parent="idles" unique_id=400791230 instance=ExtResource("2_xx64r")]
+[node name="idle81" parent="idles" unique_id=400791230 instance=ExtResource("2_w5hkd")]
 position = Vector2(1716, 349)
 scale = Vector2(1.3200003, 1.3200003)
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(-1443, 118)
+[node name="player" type="CharacterBody2D" parent="." unique_id=1896956565]
+position = Vector2(81, -45)
 scale = Vector2(4.3101068, 4.3101068)
-script = ExtResource("3_230c2")
+script = ExtResource("3_4j81h")
 
-[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=318384035]
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=319361503]
 rotation = 3.1415927
 scale = Vector2(-0.036800735, -0.036800735)
-texture = ExtResource("4_rn4pr")
+texture = ExtResource("4_2s3ex")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=250452460]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=2076621212]
 scale = Vector2(0.6476333, 0.6476333)
-shape = SubResource("CircleShape2D_lbhrr")
+shape = SubResource("CircleShape2D_w5hkd")
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1911901642]
-position = Vector2(0, -3.5402345e-06)
-ignore_rotation = false
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=717989425]
 zoom = Vector2(2.5, 2.5)
 limit_enabled = false
-limit_left = -2766
-limit_right = 1924
+limit_left = -1025
+limit_top = -638
+limit_right = 1182
+limit_bottom = 668
 position_smoothing_enabled = true
-rotation_smoothing_enabled = true
 drag_left_margin = 0.05
 drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 editor_draw_limits = true
-script = ExtResource("5_xx64r")
 
-[node name="Area2D" type="Area2D" parent="player" unique_id=760344365]
+[node name="Area2D" type="Area2D" parent="player" unique_id=931658710]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D" unique_id=1714637194]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D" unique_id=157542854]
 light_mask = 2
 visibility_layer = 2
 scale = Vector2(0.6525201, 0.6525201)
-shape = SubResource("CircleShape2D_iywne")
+shape = SubResource("CircleShape2D_4j81h")
 
 [node name="gui" type="CanvasLayer" parent="." unique_id=1002078055]
 
+[node name="time" type="Label" parent="gui" unique_id=1974830574]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -792.0
+offset_top = -352.0
+offset_right = 745.0
+offset_bottom = 466.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 600
+text = "000 s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="gui" unique_id=1700327509]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 6.0
@@ -420,23 +437,23 @@ offset_top = 30.0
 offset_right = 46.0
 offset_bottom = 70.0
 
-[node name="Panel2" type="Panel" parent="gui/Control" unique_id=1271066620]
+[node name="Panel2" type="Panel" parent="gui/Control" unique_id=517752515]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 40.0
 offset_right = 138.0
 offset_bottom = 80.0
 scale = Vector2(6, 1.189)
-theme_override_styles/panel = SubResource("StyleBoxFlat_lbhrr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2s3ex")
 
-[node name="Panel3" type="Panel" parent="gui/Control" unique_id=1976416442]
+[node name="Panel3" type="Panel" parent="gui/Control" unique_id=1510340181]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 40.0
 offset_right = 138.0
 offset_bottom = 80.0
 scale = Vector2(6, 1.189)
-theme_override_styles/panel = SubResource("StyleBoxFlat_iywne")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8lgyv")
 
 [node name="Label" type="Label" parent="gui" unique_id=483993567]
 offset_top = 660.00006
@@ -444,7 +461,7 @@ offset_right = 4907.948
 offset_bottom = 894.00006
 scale = Vector2(0.26080146, 0.26080146)
 theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
-theme_override_fonts/font = ExtResource("5_x17hl")
+theme_override_fonts/font = ExtResource("6_wbysv")
 theme_override_font_sizes/font_size = 95
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -452,5 +469,14 @@ autowrap_mode = 2
 
 [node name="oxygens" type="Node2D" parent="." unique_id=2036379242]
 
-[node name="Timer" type="Timer" parent="." unique_id=911373471]
-wait_time = 100.0
+[node name="carbons" type="Node2D" parent="." unique_id=1489248817]
+
+[node name="chromiums" type="Node2D" parent="." unique_id=1286882794]
+
+[node name="hcls" type="Node2D" parent="." unique_id=1371454920]
+
+[node name="waters" type="Node2D" parent="." unique_id=480935957]
+
+[node name="oxygen" type="Timer" parent="." unique_id=200112528]
+wait_time = 5.0
+one_shot = true
