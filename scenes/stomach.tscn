@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_w5hkd"]
 [ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_4j81h"]
 [ext_resource type="Texture2D" uid="uid://d36q57vish6b8" path="res://assets/ir1.png" id="4_2s3ex"]
+[ext_resource type="Script" uid="uid://c2ln25hquu7w0" path="res://scripts/camera.gd" id="5_4j81h"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="6_wbysv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1av1a"]
@@ -396,6 +397,7 @@ drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 editor_draw_limits = true
+script = ExtResource("5_4j81h")
 
 [node name="Area2D" type="Area2D" parent="player" unique_id=931658710]
 collision_layer = 0
@@ -478,5 +480,4 @@ autowrap_mode = 2
 [node name="waters" type="Node2D" parent="." unique_id=480935957]
 
 [node name="oxygen" type="Timer" parent="." unique_id=200112528]
-wait_time = 5.0
 one_shot = true

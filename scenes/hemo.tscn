@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bk3rc8vo3ah4w"]
+
+[ext_resource type="Texture2D" uid="uid://co3ng1kj6stqy" path="res://assets/hemo.png" id="1_1yq7v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+
+[node name="atom" type="CharacterBody2D" unique_id=1026721344]
+scale = Vector2(1.6176993, 1.6176993)
+collision_layer = 0
+collision_mask = 0
+
+[node name="hemo" type="Sprite2D" parent="." unique_id=1836638398]
+scale = Vector2(0.057210803, 0.057210803)
+texture = ExtResource("1_1yq7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105965565]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_lbhrr")

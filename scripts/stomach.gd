@@ -132,10 +132,13 @@ func _physics_process(delta: float) -> void:
 	if t % 4 == 0 && oxygens.get_child_count() <= 10:
 		spawn_oxygen()
 		
-	if t % 15 == 0 && carbons.get_child_count() <= 7:
+	if t % 15 == 0 && carbons.get_child_count() <= 6:
+		spawn_carbon()
+		spawn_carbon()
 		spawn_carbon()
 		
-	if t % 10 == 0 && chromiums.get_child_count() <= 2:
+		
+	if t % 10 == 0 && chromiums.get_child_count() < 2:
 		spawn_chromium()
 	#
 	if t % 20 == 0 && hcls.get_child_count() < 1:
@@ -165,6 +168,13 @@ func end():
 	remove_children(chromiums)
 	remove_children(waters)
 	remove_children(hcls)
+	
+	$player/Camera2D.shake_strength = 25
+	$player/Camera2D.shake_decay = 1
+	await get_tree().create_timer(3).timeout
+	get_tree().change_scene_to_file("res://scenes/convert_rbc.tscn")
+	
+	
 	
 func death():
 	oxygen_timer.stop()
