@@ -333,6 +333,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o5g77")
 text = "Hello!"
+autowrap_mode = 2
 
 [node name="option2" type="Button" parent="Control/Control" unique_id=304648043]
 layout_mode = 0
@@ -347,6 +348,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d6ut")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o5g77")
 text = "What's the plan?"
+autowrap_mode = 2
 
 [node name="gun" type="Sprite2D" parent="." unique_id=716584110]
 visible = false

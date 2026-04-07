@@ -18,7 +18,7 @@ extends Node2D
 @onready var time_label = $gui/time
 @onready var health_bar = $gui/Control/Panel3
 
-var cur = 0
+var cur = 13
 var not_now = 0
 var toHemo = 0
 var chromium_alloy = 0
@@ -27,6 +27,7 @@ var chromium_alloy = 0
 func _ready() -> void:
 	global.game_script = self
 	player.no_move = 1
+	#moveRBCs()
 	#print(player.global_position)
 	print("started")
 	#start_game()
@@ -52,12 +53,54 @@ func _input(event: InputEvent) -> void:
 func sp(msg, co):
 	$gui/Label.text = msg
 	if co == 1:  $gui/Label.add_theme_color_override("font_color", Color("39a8c4"))
-	else: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
+	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
+	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
 
 func scene():
 	cur += 1
 	match cur: 
 		1: sp("WHERE AM I?", 1)
+		2: sp("What do you see?", 2)
+		3: sp("WHAT DID YOU DO?", 1)
+		4: sp("Answer me!", 2)
+		5: sp("What can you see?", 2)
+		6: sp("The place is all red.", 1)
+		7: sp("IT WORKED", 2)
+		8: sp("Is that blood?", 1)
+		9: sp("YES.", 2)
+		10: sp("You're now in your body .. as an RBC.", 2)
+		11: sp("You're crazy.", 1)
+		12: sp("I know.", 2)
+		13: sp("Try to move", 2)
+		14: 
+			sp("Okay", 1)
+			player.no_move = 0
+			not_now = 1
+			sceneAuto(2)
+		15: 
+			sp("What do you see?", 2)
+			sceneAuto(1.5)
+		16: 
+			sp("Again? I answered.", 1)
+			sceneAuto(2)
+		17: sp("Explore the place.", 2)
+		
+
+func sceneAuto(t):
+		await get_tree().create_timer(t).timeout
+		scene()
+		
+func moveRBCs():
+	$map/gate1.queue_free()
+	var tween = get_tree().create_tween()
+	tween.tween_property($rbcs, "position:x", 3000, 7.0).set_trans(Tween.TRANS_SINE)
+	await get_tree().create_timer(4).timeout
+	
+	sp("Run.", 0)
+	
+
+func _on_run_body_entered(body: Node2D) -> void:
+	if body == player :moveRBCs()
 
 
 func start_game():
