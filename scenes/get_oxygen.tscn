@@ -34,6 +34,8 @@ b = Vector2(241, -45)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kbcmb"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pfh4p"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
@@ -54,7 +56,7 @@ offset_left = -3340.0
 offset_top = -247.00002
 offset_right = -3300.0
 offset_bottom = -207.00002
-scale = Vector2(154.2445, 0.26142126)
+scale = Vector2(131.89095, 0.26142126)
 theme_override_styles/panel = SubResource("StyleBoxFlat_4kmhl")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="map" unique_id=1423646902]
@@ -79,7 +81,7 @@ offset_left = -3340.0
 offset_top = -45.0
 offset_right = -3300.0
 offset_bottom = -5.0
-scale = Vector2(154.56493, 0.26142126)
+scale = Vector2(132.16492, 0.26142126)
 theme_override_styles/panel = SubResource("StyleBoxFlat_4kmhl")
 
 [node name="ColorRect" type="ColorRect" parent="map" unique_id=1508112161]
@@ -192,6 +194,13 @@ disabled = true
 position = Vector2(31, -3.0000005)
 scale = Vector2(3.7084627, -26.35075)
 shape = SubResource("SegmentShape2D_kbcmb")
+
+[node name="Area2D2" type="Area2D" parent="map" unique_id=1027624003]
+position = Vector2(1999, -243)
+scale = Vector2(1, 37.640034)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D2" unique_id=560323129]
+shape = SubResource("SegmentShape2D_pfh4p")
 
 [node name="idles" type="Node2D" parent="." unique_id=2048563094]
 
@@ -364,7 +373,7 @@ position = Vector2(1508.0001, 97)
 scale = Vector2(1.3200003, 1.3200003)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(-87, -138)
+position = Vector2(-2670.9998, -138)
 scale = Vector2(4.3101068, 4.3101068)
 script = ExtResource("3_ic61s")
 
@@ -382,6 +391,7 @@ position = Vector2(0, -3.5402345e-06)
 ignore_rotation = false
 zoom = Vector2(2.5, 2.5)
 limit_left = -2766
+limit_right = 1924
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_left_margin = 0.05
@@ -506,3 +516,4 @@ scale = Vector2(1.5907019, 1.5907019)
 script = ExtResource("8_pfh4p")
 
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="map/Area2D2" to="." method="_on_checkpoint_entered"]

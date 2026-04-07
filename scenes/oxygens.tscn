@@ -1,0 +1,314 @@
+[gd_scene format=3 uid="uid://cn8422ip7i8im"]
+
+[ext_resource type="Script" uid="uid://cn5kvex0j56gm" path="res://scripts/oxygens.gd" id="1_1av1a"]
+[ext_resource type="PackedScene" uid="uid://cvmgnodnylxau" path="res://scenes/idle.tscn" id="2_vshfj"]
+[ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_hgwyw"]
+[ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_igmao"]
+[ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_utmkc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1av1a"]
+bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_do5m3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.11119685, 0.11119684, 0.11119684, 0.98800004)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.2344518, 0.5930889, 0.79942304, 0.9882353)
+
+[node name="game" type="Node2D" unique_id=1594935208]
+script = ExtResource("1_1av1a")
+
+[node name="map" type="Node2D" parent="." unique_id=572353439]
+
+[node name="Panel" type="Panel" parent="map" unique_id=2054554563]
+offset_left = -1976.0
+offset_top = -752.00006
+offset_right = -1941.6779
+offset_bottom = -712.00006
+scale = Vector2(129.45094, 0.26142126)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1av1a")
+
+[node name="Panel4" type="Panel" parent="map" unique_id=1005838812]
+offset_left = -1976.0
+offset_top = 844.99994
+offset_right = -1941.6779
+offset_bottom = 884.99994
+scale = Vector2(129.45094, 0.26142126)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1av1a")
+
+[node name="Panel5" type="Panel" parent="map" unique_id=933039934]
+offset_left = -1976.0
+offset_top = 844.99994
+offset_right = -1931.0044
+offset_bottom = 884.99994
+rotation = -1.5707964
+scale = Vector2(35.330925, 0.26142126)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1av1a")
+
+[node name="Panel6" type="Panel" parent="map" unique_id=717066860]
+offset_left = 2467.457
+offset_top = -749.9999
+offset_right = 2512.7722
+offset_bottom = -709.9999
+rotation = 1.5707964
+scale = Vector2(35.330925, 0.26142126)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1av1a")
+
+[node name="ColorRect" type="ColorRect" parent="map" unique_id=1508112161]
+offset_left = -3638.0
+offset_top = -1667.0
+offset_right = -3598.0
+offset_bottom = -1627.0
+scale = Vector2(162.15462, 111.22347)
+color = Color(0.27603957, 0.0062026693, 0.007974861, 0.78400004)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map" unique_id=1594614598]
+position = Vector2(-543, -751.9999)
+scale = Vector2(1.8095012, -3.0684812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D" unique_id=1698381436]
+shape = SubResource("WorldBoundaryShape2D_do5m3")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="map" unique_id=2005444286]
+position = Vector2(174.99998, 855)
+rotation = 3.1415927
+scale = Vector2(1.8095012, -3.0684812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D4" unique_id=407796469]
+shape = SubResource("WorldBoundaryShape2D_do5m3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="map" unique_id=37948353]
+position = Vector2(-1975.9999, -130)
+rotation = -1.5707964
+scale = Vector2(1.8095012, -3.0684812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D2" unique_id=652352378]
+shape = SubResource("WorldBoundaryShape2D_do5m3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="map" unique_id=1478019098]
+position = Vector2(2467, -847.99976)
+rotation = 1.5707964
+scale = Vector2(1.8095012, -3.0684812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D3" unique_id=649708732]
+shape = SubResource("WorldBoundaryShape2D_do5m3")
+
+[node name="idles" type="Node2D" parent="." unique_id=2048563094]
+
+[node name="idle" parent="idles" unique_id=1752090066 instance=ExtResource("2_vshfj")]
+position = Vector2(-724, 976)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle2" parent="idles" unique_id=1056592274 instance=ExtResource("2_vshfj")]
+position = Vector2(571.0001, -173)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle3" parent="idles" unique_id=228954860 instance=ExtResource("2_vshfj")]
+position = Vector2(-2037, 507.99994)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle4" parent="idles" unique_id=1181317442 instance=ExtResource("2_vshfj")]
+position = Vector2(59, 118)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle5" parent="idles" unique_id=1803484362 instance=ExtResource("2_vshfj")]
+position = Vector2(-147.99997, 218)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle21" parent="idles" unique_id=899578555 instance=ExtResource("2_vshfj")]
+position = Vector2(-502.99997, -331)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle22" parent="idles" unique_id=22650639 instance=ExtResource("2_vshfj")]
+position = Vector2(-3028, -552)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle23" parent="idles" unique_id=1143654934 instance=ExtResource("2_vshfj")]
+position = Vector2(-1026, 390.99997)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle24" parent="idles" unique_id=1065706983 instance=ExtResource("2_vshfj")]
+position = Vector2(-802, -444)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle25" parent="idles" unique_id=654423080 instance=ExtResource("2_vshfj")]
+position = Vector2(2003, -423.00003)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle26" parent="idles" unique_id=2053245687 instance=ExtResource("2_vshfj")]
+position = Vector2(900, -890.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle27" parent="idles" unique_id=259983488 instance=ExtResource("2_vshfj")]
+position = Vector2(961, 280)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle28" parent="idles" unique_id=718069864 instance=ExtResource("2_vshfj")]
+position = Vector2(795, 551)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle29" parent="idles" unique_id=1877073777 instance=ExtResource("2_vshfj")]
+position = Vector2(-1.999939, 551)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle30" parent="idles" unique_id=906392035 instance=ExtResource("2_vshfj")]
+position = Vector2(1389, 504)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle31" parent="idles" unique_id=1465482533 instance=ExtResource("2_vshfj")]
+position = Vector2(-1606, 551)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle32" parent="idles" unique_id=1116167231 instance=ExtResource("2_vshfj")]
+position = Vector2(1777.0002, 996.99994)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle33" parent="idles" unique_id=405005900 instance=ExtResource("2_vshfj")]
+position = Vector2(1838, -180)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle34" parent="idles" unique_id=1526206313 instance=ExtResource("2_vshfj")]
+position = Vector2(-2772, -88)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle35" parent="idles" unique_id=299596211 instance=ExtResource("2_vshfj")]
+position = Vector2(-1606.0001, -155)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle36" parent="idles" unique_id=1973918584 instance=ExtResource("2_vshfj")]
+position = Vector2(-1169.0001, -85)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle37" parent="idles" unique_id=157648876 instance=ExtResource("2_vshfj")]
+position = Vector2(-2909, 660)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle38" parent="idles" unique_id=117311775 instance=ExtResource("2_vshfj")]
+position = Vector2(-2037, -869.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle39" parent="idles" unique_id=561726803 instance=ExtResource("2_vshfj")]
+position = Vector2(37, -696.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle40" parent="idles" unique_id=822339241 instance=ExtResource("2_vshfj")]
+position = Vector2(571, -696.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle41" parent="idles" unique_id=1230110901 instance=ExtResource("2_vshfj")]
+position = Vector2(1389, -465.00006)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle43" parent="idles" unique_id=744651124 instance=ExtResource("2_vshfj")]
+position = Vector2(1022, -201.00003)
+rotation = -2.8797934
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle44" parent="idles" unique_id=1856867853 instance=ExtResource("2_vshfj")]
+position = Vector2(2639, -402)
+rotation = -2.8797934
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle45" parent="idles" unique_id=202264115 instance=ExtResource("2_vshfj")]
+position = Vector2(2628, 482.99994)
+rotation = -2.8797934
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle46" parent="idles" unique_id=1795377569 instance=ExtResource("2_vshfj")]
+position = Vector2(-2170, -352)
+rotation = -2.8797934
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="idle42" parent="idles" unique_id=2028821318 instance=ExtResource("2_vshfj")]
+position = Vector2(2003.0001, 572)
+scale = Vector2(1.3200003, 1.3200003)
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
+position = Vector2(-1443, 118)
+scale = Vector2(4.3101068, 4.3101068)
+script = ExtResource("3_hgwyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=318384035]
+rotation = 3.1415927
+scale = Vector2(-0.036800735, -0.036800735)
+texture = ExtResource("4_igmao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=250452460]
+scale = Vector2(0.6476333, 0.6476333)
+shape = SubResource("CircleShape2D_lbhrr")
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1911901642]
+position = Vector2(0, -3.5402345e-06)
+ignore_rotation = false
+zoom = Vector2(2.5, 2.5)
+limit_enabled = false
+limit_left = -2766
+limit_right = 1924
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+editor_draw_limits = true
+
+[node name="Area2D" type="Area2D" parent="player" unique_id=760344365]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D" unique_id=1714637194]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.6525201, 0.6525201)
+shape = SubResource("CircleShape2D_iywne")
+
+[node name="gui" type="CanvasLayer" parent="." unique_id=1002078055]
+
+[node name="Control" type="Control" parent="gui" unique_id=1700327509]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 30.0
+offset_right = 46.0
+offset_bottom = 70.0
+
+[node name="Panel2" type="Panel" parent="gui/Control" unique_id=1271066620]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 80.0
+scale = Vector2(6, 1.189)
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbhrr")
+
+[node name="Panel3" type="Panel" parent="gui/Control" unique_id=1976416442]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 80.0
+scale = Vector2(6, 1.189)
+theme_override_styles/panel = SubResource("StyleBoxFlat_iywne")
+
+[node name="Label" type="Label" parent="gui" unique_id=483993567]
+offset_top = 660.00006
+offset_right = 4907.948
+offset_bottom = 894.00006
+scale = Vector2(0.26080146, 0.26080146)
+theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
+theme_override_fonts/font = ExtResource("5_utmkc")
+theme_override_font_sizes/font_size = 95
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="oxygens" type="Node2D" parent="." unique_id=2036379242]
+
+[node name="Timer" type="Timer" parent="." unique_id=911373471]
+wait_time = 60.0

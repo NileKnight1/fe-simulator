@@ -1,8 +1,11 @@
 extends Node2D
 
+@onready var scriptX = preload("res://scripts/moving2.gd")
+@onready var oxygen2S = preload("res://scenes/oxygen2.tscn")
 
 @onready var player = $player
 @onready var health_bar = $gui/Control/Panel3
+@onready var Oxtimer = $Timer
 
 var macro_run = 0
 var safe = 0
@@ -11,17 +14,55 @@ var not_now = 1
 var ox1 = 0
 var oxygen_amount = 0
 var max_oxygen = 15
-var first_ox = 1
+
 
 func _ready() -> void:
-	refresh_oxygen(0)
+	refresh_oxygen(1)
 	global.game_script = self
-	scene()
+	Oxtimer.start()
 	
-
+	#spawn_ox2()
+	##scene()
+	#var object = oxygen2S.instantiate()
+	#object.set_script(scriptX)
+	#$oxygens.add_child(object)
+	#object.position = Vector2(50, 50)
+	##
+	#spawn_ox2()
+	#spawn_ox2()
+	#spawn_ox2()
+	#spawn_ox2()
+	#spawn_ox2()
+	#spawn_ox2()
+	#spawn_ox2()
+	
+	
+var ttt = 0
+var t 
 
 func _physics_process(delta: float) -> void:
-	pass
+	
+	for i in $oxygens.get_children():
+		var pgp = player.global_position
+		var direction: Vector2 = pgp - i.global_position
+		var distance: float = direction.length()
+		if distance > 800 || i.position.x > 2430 || i.position.x < -1932.0 ||  i.position.y < -717 || i.position.y > 820:
+			i.queue_free()
+			spawn_ox2()
+		
+	t = int(Oxtimer.time_left)
+	if ttt == t: return
+	#time_label.text = str(t)
+	ttt = t
+	#print(t)
+	#print(player.health)
+	
+
+	if t % 10 == 0 && $oxygens.get_child_count() <= 10:
+		spawn_ox2()
+		spawn_ox2()
+		spawn_ox2()
+
 
 
 
@@ -79,8 +120,7 @@ func sceneAuto(t):
 	
 
 func _on_checkpoint_entered(body: Node2D) -> void:
-	if first_ox: return
-	if body == player: get_tree().change_scene_to_file("res://scenes/oxygens.tscn")
+	if body == player: get_tree().change_scene_to_file("res://scenes/get_oxygen.tscn")
 
 
 func cam_switch(cam1, cam2):
@@ -97,6 +137,9 @@ func refresh_oxygen(pnt):
 	#print((float(oxygen_amount)/float(max_oxygen))*6)
 	
 	health_bar.scale.x = ((float(oxygen_amount)/float(max_oxygen))*6)
+	
+	if oxygen_amount == 15:
+		end()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -124,16 +167,31 @@ func picked(atom):
 
 func oxygen2():
 	refresh_oxygen(1)
-	if first_ox:
-		first_ox = 0
-		sp("", 1)
-		var h = $gui/Control
-		h.visible = 1
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 0
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 1
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 0
-		await get_tree().create_timer(0.4).timeout
-		h.visible = 1
+
+func spawn_ox2():
+	var new_object = oxygen2S.instantiate()
+	spawn(new_object)
+
+
+func spawn(new_object):
+	var pgp = player.global_position
+	
+	new_object.set_script(scriptX)
+	print(new_object)
+	$oxygens.add_child(new_object)
+	
+	new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
+	var direction: Vector2 = pgp - new_object.global_position
+	var distance: float = direction.length()
+	
+	
+	while distance < 150 || new_object.position.x > 2430 || new_object.position.x < -1932.0 ||  new_object.position.y < -717 || new_object.position.y > 820 :
+		new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
+		direction = pgp - new_object.global_position
+		distance = direction.length()
+		
+	
+func end():
+	Oxtimer.stop()
+	for i in $oxygens.get_children():
+		i.queue_free()

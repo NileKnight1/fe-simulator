@@ -103,7 +103,7 @@ func moveRBCs():
 	var tween = get_tree().create_tween()
 	tween.tween_property($rbcs, "position:x", 3000, 7.0).set_trans(Tween.TRANS_SINE)
 	
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(1).timeout
 	sp("Run.", 0)
 	await get_tree().create_timer(1.5).timeout
 	sp("What's going on?", 1)

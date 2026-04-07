@@ -6,7 +6,7 @@ extends Node2D
 @onready var moving_script = preload("res://scripts/moving.gd")
 
 
-@onready var oxygenS = preload("res://scenes/oxygen.tscn")
+@onready var oxygenS = preload("res://scenes/oxygen2.tscn")
 @onready var carbonS = preload("res://scenes/carbon.tscn")
 @onready var chromiumS = preload("res://scenes/chromium.tscn")
 
@@ -30,7 +30,8 @@ func _ready() -> void:
 	global.game_script = self
 	#print(player.global_position)
 	print("started")
-	start_game()
+	#start_game()
+	spawn_oxygen()
 	#death()
 	
 
