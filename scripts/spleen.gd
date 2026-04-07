@@ -25,9 +25,10 @@ func _ready() -> void:
 	refresh_oxygen(1)
 	global.game_script = self
 	Oxtimer.start()
+	#$player/Camera2D.shake_strength = 25
 	
 	#spawn_macro()
-	##scene()
+	scene()
 	#var object = macroS.instantiate()
 	#object.set_script(scriptX)
 	#$oxygens.add_child(object)
@@ -64,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	#print(player.health)
 	
 
-	if t % 1 == 0 && $oxygens.get_child_count() <= min(max_macro, 80):
+	if t % 10 == 0 && $oxygens.get_child_count() <= min(max_macro, 80):
 		
 		for i in range(max_macro):
 			spawn_macro()
@@ -74,6 +75,12 @@ func _physics_process(delta: float) -> void:
 	if t == 1:
 		for i in range(100):
 			spawn_macro()
+			
+	if t % 90 == 0:
+		sp("MACROPHAGES", 1)
+		await get_tree().create_timer(2).timeout
+		sp('', 1)
+		
 
 
 
@@ -100,15 +107,42 @@ func scene():
 	cur += 1
 	match cur: 
 		1: 
-			sp("I'm full oxygenated doc.", 1)
+			sp("I entered a strange organ.", 1)
 			sceneAuto(1.5)
 		2:
-			sp("Good job.", 2)
+			sp("Mhm.", 2)
 			sceneAuto(1.5)
 		3:
-			get_tree().change_scene_to_file("res://scenes/convert_fe.tscn")
+			sp("", 1)
+		4:
+			sp("What was this sound?", 2)
+			sceneAuto(1.5)
+		5:
+			sp("They got me .. The macrophages.", 1)
+			sceneAuto(1.5)
+		6:
+			sp("I'm a piece of iron.", 1)
+			sceneAuto(1.5)
 			
 			
+		7: 
+			$player/Camera2D.shake_strength = 25
+			$player/Camera2D.shake_decay = 4
+			sp("What's happening?", 1)
+			sceneAuto(1.5)
+		8:
+			sp("Your body is vommiting.", 2)
+			$player/Camera2D.shake_strength = 30
+			$player/Camera2D.shake_decay = 0.1
+			sceneAuto(1.5)
+		9:
+			sp("HUH.", 1)
+			sceneAuto(4)
+		10: 
+			sp("", 1)
+			
+
+
 
 func sceneAuto(t):
 		await get_tree().create_timer(t).timeout
@@ -163,6 +197,7 @@ func picked(atom):
 			macrophage()
 
 func macrophage():
+	$player/Camera2D.shake_strength = 25
 	done = 1
 	player.get_child(0).texture = load("res://assets/ir1.png")
 	player.scale = Vector2(1.7, 1.7)
@@ -173,6 +208,8 @@ func macrophage():
 		$oxygens.get_child(i).queue_free()
 		spawn_macro2()
 		print(i)
+		
+	scene()
 
 func spawn_macro():
 	var new_object = macroS.instantiate()

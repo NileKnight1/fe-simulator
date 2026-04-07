@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c62tjb4o7dyij" path="res://scripts/player.gd" id="3_230c2"]
 [ext_resource type="Texture2D" uid="uid://eq0v13k4t8yn" path="res://assets/rbc.png" id="4_rn4pr"]
 [ext_resource type="FontFile" uid="uid://bpwww22jd0o23" path="res://assets/aldrich.ttf" id="5_x17hl"]
+[ext_resource type="Script" uid="uid://c2ln25hquu7w0" path="res://scripts/camera.gd" id="5_xx64r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1av1a"]
 bg_color = Color(0.1652407, 0.00646809, 0.027550692, 1)
@@ -397,6 +398,7 @@ drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 editor_draw_limits = true
+script = ExtResource("5_xx64r")
 
 [node name="Area2D" type="Area2D" parent="player" unique_id=760344365]
 collision_layer = 0
