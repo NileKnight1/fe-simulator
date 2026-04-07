@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	#print(player.health)
 	
 
-	if t % 10 == 0 && $oxygens.get_child_count() <= 10:
+	if t % 1 == 0 && $oxygens.get_child_count() <= 10:
 		spawn_ox2()
 		spawn_ox2()
 		spawn_ox2()
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("action"):
 		if not_now: return
-		print(cur)
+		#print(cur)
 		
 		scene_choose()
 
@@ -89,29 +89,14 @@ func scene():
 	cur += 1
 	match cur: 
 		1: 
-			sp("Yo doc .. you still here.", 1)
+			sp("I'm full oxygenated doc.", 1)
 			sceneAuto(1.5)
 		2:
-			sp("I was eating.", 2)
-			sceneAuto(1)
-		3:
-			sp("I WOULD HAVE JUST BEEN EATEN.", 1)
+			sp("Good job.", 2)
 			sceneAuto(1.5)
-		4: 
-			sp("Haha .. search for oxygen and I'll tell you what to do.", 2)
-			sceneAuto(3)
-		5: sp("", 1)
-		6:
-			sp("You as an RBC carry oxygen, the most important fuel every cell depends on to survive and produce energy.", 2)
-		7:
-			sp("Carry as many as you can to move to the next step.", 2)
-		8:
+		3:
+			get_tree().change_scene_to_file("res://scenes/convert_fe.tscn")
 			
-			$oxygen_ex.visible = 0
-			cam_switch($player/Camera2D, $player/temp)
-			await get_tree().create_timer(0.4).timeout
-			not_now = 1
-			player.no_move = 0
 			
 
 func sceneAuto(t):
@@ -138,6 +123,7 @@ func refresh_oxygen(pnt):
 	
 	health_bar.scale.x = ((float(oxygen_amount)/float(max_oxygen))*6)
 	
+	print(oxygen_amount)
 	if oxygen_amount == 15:
 		end()
 
@@ -177,7 +163,7 @@ func spawn(new_object):
 	var pgp = player.global_position
 	
 	new_object.set_script(scriptX)
-	print(new_object)
+	#print(new_object)
 	$oxygens.add_child(new_object)
 	
 	new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
@@ -189,9 +175,10 @@ func spawn(new_object):
 		new_object.position = Vector2(randi_range(pgp.x-200,pgp.x+200), randi_range(-pgp.y-200,pgp.y+200))
 		direction = pgp - new_object.global_position
 		distance = direction.length()
-		
-	
+
 func end():
 	Oxtimer.stop()
+	await get_tree().create_timer(0.1).timeout
+	
 	for i in $oxygens.get_children():
 		i.queue_free()
