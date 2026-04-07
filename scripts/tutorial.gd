@@ -58,7 +58,7 @@ func sp(msg, co):
 	if co == 1:  $gui/Label.add_theme_color_override("font_color", Color("39a8c4"))
 	elif co == 2: $gui/Label.add_theme_color_override("font_color", Color("cbb95a"))
 	elif co == 0: $gui/Label.add_theme_color_override("font_color", Color("bbb9a3ff"))
-	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("f8918fff"))
+	elif co == 3: $gui/Label.add_theme_color_override("font_color", Color("fcd1ceff"))
 	
 
 func scene_choose():
@@ -142,6 +142,7 @@ func _on_rbc_chat_body_entered(body: Node2D) -> void:
 		player.no_move = 1
 		not_now = 0
 		cur = 0
+		$player.position.y = -140
 		
 		scene2()
 
@@ -157,9 +158,62 @@ func scene2():
 		6: sp("A macrophage.", 3)
 		7: sp("What?", 1)
 		8: 
+			$macro.visible = 0
+			$macro_ex.visible = 1
+			#$player/Camera2D.enabled = 0
+			#$macro_ex/Camera2D.enabled = 1
+			cam_switch($player/Camera2D, $player/macro)
+			await get_tree().create_timer(1).timeout
+			not_now =1
 			sp("A macrophage.", 3)
+			not_now =0
+			
+			
+		9: sp("A type of white blood cell that is part of the immune system.", 3)
+		10: sp("It protects the body by engulfing and digesting harmful invaders like bacteria.", 3)
+		11: sp("It also breaks down old red blood cells, including their hemoglobin, and releases iron for the body to use again.", 3)
+		12:
+			
+			cam_switch($player/Camera2D, $player/temp)
+			
+			sp("So it breaks you.", 1)
+			
+		13: 
+			sp("WE! You are like us.", 3)
+			$macro_ex.visible = 0
+			
+		14: sp("Oh I am.", 1)
+		15: sp("What should we do now?.", 1)
+		16: sp("Getting oxygenated.", 3)
+		17: sp("Why?", 3)
+		18:
+			cam_switch($player/Camera2D, $player/rbc)
+			$rbc_ex.visible = 1
+			await get_tree().create_timer(1).timeout
+			not_now =1
+			sp("Red Blood Cells.", 3)
+			not_now =0
+		19: sp("Specialized cells that transport oxygen from the lungs to the rest of the body.", 3)
+		20: sp("We use hemoglobin to bind oxygen and release it to tissues where it is needed for energy.", 3)
+		21: 
+			sp("Let's get some oxygens.", 3)
+			$rbc_ex.visible = 0
+			
+			cam_switch($player/Camera2D, $player/temp)
+		22:
+			not_now = 1
+			player.no_move = 0
 		
 		
+		
+		
+
+func cam_switch(cam1, cam2):
+	cam1.zoom = cam2.zoom
+	cam1.position = cam2.position
+	cam1.rotation = cam2.rotation
+	cam1.scale = cam2.scale
+
 
 func start_game():
 	pass

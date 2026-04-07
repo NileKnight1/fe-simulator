@@ -36,7 +36,7 @@ a = Vector2(167, 31)
 b = Vector2(241, -45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbqnl"]
-size = Vector2(1.2952805, 18.417553)
+size = Vector2(0.8635044, 15.255737)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 
@@ -244,7 +244,7 @@ position = Vector2(1713, -3)
 scale = Vector2(0.96506673, 1.5813719)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/rbcchat" unique_id=913940958]
-position = Vector2(-629.49023, -101.178024)
+position = Vector2(-635.18933, -88.84693)
 scale = Vector2(2.4, 8.000004)
 shape = SubResource("RectangleShape2D_gbqnl")
 
@@ -458,7 +458,7 @@ position = Vector2(1508.0001, 97)
 scale = Vector2(1.3200003, 1.3200003)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=833614243]
-position = Vector2(-24, -139.99998)
+position = Vector2(-2, -139.99998)
 scale = Vector2(4.3101068, 4.3101068)
 script = ExtResource("3_6yjpi")
 
@@ -472,6 +472,26 @@ scale = Vector2(0.6476333, 0.6476333)
 shape = SubResource("CircleShape2D_lbhrr")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1911901642]
+position = Vector2(0, -3.5402345e-06)
+ignore_rotation = false
+zoom = Vector2(2.5, 2.5)
+limit_enabled = false
+limit_left = -1025
+limit_top = -638
+limit_right = 1182
+limit_bottom = 668
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
+editor_draw_limits = true
+
+[node name="temp" type="Camera2D" parent="player" unique_id=1232171824]
+position = Vector2(0, -3.5402345e-06)
+ignore_rotation = false
+enabled = false
 zoom = Vector2(2.5, 2.5)
 limit_enabled = false
 limit_left = -1025
@@ -484,6 +504,20 @@ drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 editor_draw_limits = true
+
+[node name="macro" type="Camera2D" parent="player" unique_id=432407399]
+position = Vector2(-190.7146, 2.5521393)
+rotation = 0.17453292
+scale = Vector2(0.23201281, 0.23201281)
+ignore_rotation = false
+zoom = Vector2(2.885, 2.885)
+
+[node name="rbc" type="Camera2D" parent="player" unique_id=1246379493]
+position = Vector2(3.944168, 2.5521393)
+rotation = 0.17453292
+scale = Vector2(0.23201281, 0.23201281)
+ignore_rotation = false
+zoom = Vector2(2.885, 2.885)
 
 [node name="Area2D" type="Area2D" parent="player" unique_id=760344365]
 collision_layer = 0
@@ -550,9 +584,8 @@ scale = Vector2(6, 1.189)
 theme_override_styles/panel = SubResource("StyleBoxFlat_iywne")
 
 [node name="Label" type="Label" parent="gui" unique_id=483993567]
-offset_left = 381.00003
 offset_top = 660.00006
-offset_right = 2347.0
+offset_right = 4907.948
 offset_bottom = 894.00006
 scale = Vector2(0.26080146, 0.26080146)
 theme_override_colors/font_color = Color(0.7953644, 0.7273974, 0.35419908, 1)
@@ -561,6 +594,7 @@ theme_override_font_sizes/font_size = 95
 text = "DO YOU HEAR ME?"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="rbcs" type="Node2D" parent="." unique_id=394209629]
 position = Vector2(243.00003, 53)
@@ -616,12 +650,6 @@ position = Vector2(2800, 0)
 position = Vector2(-2595, -141.99994)
 scale = Vector2(3.658059, 3.658059)
 
-[node name="Camera2D" type="Camera2D" parent="macro_ex" unique_id=432407399]
-position = Vector2(266.00003, -128.99998)
-rotation = 0.17453292
-ignore_rotation = false
-zoom = Vector2(2.885, 2.885)
-
 [node name="ColorRect" type="ColorRect" parent="macro_ex" unique_id=1076319216]
 offset_left = 334.2119
 offset_top = -270.4574
@@ -641,6 +669,30 @@ scale = Vector2(0.108430274, 0.108430274)
 theme_override_fonts/font = ExtResource("8_ckvwl")
 theme_override_font_sizes/font_size = 309
 text = "Macrophage"
+
+[node name="rbc_ex" type="Node2D" parent="." unique_id=945408310]
+visible = false
+position = Vector2(839, 0)
+
+[node name="ColorRect" type="ColorRect" parent="rbc_ex" unique_id=1384820016]
+offset_left = 334.2119
+offset_top = -270.4574
+offset_right = 634.74023
+offset_bottom = -257.78156
+rotation = -0.22340214
+scale = Vector2(-1.3269428, -8.502392)
+color = Color(0.23448718, 0.0040770597, 0.06420185, 1)
+
+[node name="Label" type="Label" parent="rbc_ex" unique_id=351330808]
+offset_left = 67.0
+offset_top = -252.00049
+offset_right = 1254.0
+offset_bottom = 111.99951
+rotation = -0.22340214
+scale = Vector2(0.108430274, 0.108430274)
+theme_override_fonts/font = ExtResource("8_ckvwl")
+theme_override_font_sizes/font_size = 309
+text = "RBCs"
 
 [connection signal="area_entered" from="map/gate1/run" to="." method="_on_run_area_entered"]
 [connection signal="body_entered" from="map/gate1/run" to="." method="_on_run_body_entered"]
