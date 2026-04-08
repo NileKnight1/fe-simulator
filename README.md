@@ -19,5 +19,7 @@
 - You search for hemoglobin to be an RBC.
 - You win!
 
+  If your're stuck in a level tell me to make it easier.
+
 ### Credits
 - Images and audio rights go to their owners.
